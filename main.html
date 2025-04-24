@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beetle Page</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Courier New', monospace;
+            color: darkred;
+            cursor: none; /* Removes cursor for unsettling effect */
+        }
+
+        img {
+            max-width: 90%;
+            max-height: 90%;
+            animation: spin 20s linear infinite; /* Adds spinning effect */
+        }
+
+        /* Spinning animation */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Eerie background text */
+        .whisper {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.08;
+            color: darkred;
+            text-shadow: 0 0 5px darkred;
+            transform: rotate(-5deg);
+            animation: fade 4s infinite alternate;
+            user-select: none;
+        }
+
+        @keyframes fade {
+            0% { opacity: 0.02; }
+            100% { opacity: 0.15; }
+        }
+
+        /* Hidden eyes effect */
+        .eyes {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: darkred;
+            border-radius: 50%;
+            box-shadow: 0 0 10px darkred;
+            opacity: 0.2;
+            animation: blink 6s infinite alternate;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Faint heartbeat pulsing */
+        body::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,0,0,0) 70%, rgba(0,0,0,0.9) 100%);
+            opacity: 0.3;
+            animation: heartbeat 5s infinite alternate;
+        }
+
+        @keyframes heartbeat {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.35; }
+        }
+    </style>
+</head>
+<body>
+    <img src="beetle.png" alt="Beetle">
+
+    <!-- Sinister whispers appearing faintly -->
+    <div class="whisper" style="top: 20%; left: 15%;">**Critters**.</div>
+    <div class="whisper" style="top: 50%; left: 60%;">It means no harm</div>
+    <div class="whisper" style="top: 80%; left: 40%;">Beetles are the best</div>
+
+    <!-- Unnerving eyes subtly appearing -->
+    <div class="eyes" style="top: 30%; left: 80%;"></div>
+    <div class="eyes" style="top: 70%; left: 20%;"></div>
+</body>
+</html>

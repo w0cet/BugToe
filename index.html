@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BugToe - The Portal of Weirdness</title>
+         <nav>
+          <ul>
+            <li><a href="Gallery.html">.</a></li>
+          </ul>
+        </nav>
+    <style>
+        body {
+            background: linear-gradient(45deg, lime, magenta, cyan, orange);
+            color: #FFF000;
+            font-family: 'Papyrus', fantasy;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-size: 60px;
+            color: #ff00ff;
+            text-shadow: 3px 3px 10px #00ffff;
+            transform: rotate(-5deg);
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            border: 10px solid #00ff00;
+            background: repeating-radial-gradient(circle, blue, pink, yellow, red);
+            width: 80%;
+            box-shadow: 0px 0px 20px #ff4500;
+        }
+        .bug {
+            font-size: 120px;
+            animation: spinny 2s infinite alternate;
+        }
+        @keyframes spinny {
+            from { transform: rotate(-20deg) scale(1); }
+            to { transform: rotate(20deg) scale(1.2); }
+        }
+        .note {
+            position: absolute;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🐞 Welcome to BugToe! 🦶</h1>
+    <div class="container">
+        <p>BugToe exists to answer the greatest questions ever pondered:</p>
+        <ul>
+            <li>Why do bugs love toes so much?</li>
+            <li>Are toes secretly bugs in disguise?</li>
+            <li>Can we harness bug energy for toe-related science?</li>
+        </ul>
+        <p class="bug">🪲</p>
+        <p>BugToe is where <strong>mad brilliance meets absolute nonsense.</strong></p>
+    </div>
+    <p>Embrace the weird. Embrace the BugToe. 🚀 https://www.youtube.com/channel/UChbjJYjP2VGsonhRIZFn6-Q</p>
+
+
+    <!-- JavaScript to randomly place notes -->
+    <script>
+      const notes = [
+    "Secret #1: Toes know everything!",
+    "Secret #2: Bugs are everywhere.",
+    "Secret #3: Toes have holes",
+    "Secret #4: Bugs love weirdness.",
+    "Secret #5: prrsnn was here",
+    "Secret #6: When the when -tommy inside it.",
+    "Secret #7: Teeth bug.",
+    "Secret #8: You don't have potential.",
+    "Secret #9: How long can this stay up for?",
+    "Secret #10: Matpat could make a theory but he's gone lmao.",
+    "Secret #11: The bug within the toe.",
+    "Secret #12: Only weirdness prevails.",
+    "Secret #13: HAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAH.",
+    "Secret #14: HAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAH.",
+    "Secret #15: HAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAHHAHAHAHHAHAHAAH.",
+    "Secret #16: HAHAHAHHAHAHAHHAHAHAHAHHAHAHAHAHAHAHAHAHHAHAHA.",
+    "Secret #17: HAHAHAHHAHAHAH.",
+    "Secret #18: I struggled picking a name but who cares.",
+    "Secret #19: The 20th secret is only truth.",
+    "Secret #21: The 20th secret is a lie.",
+    "Secret #22: How many bugs have toes?",
+    "Secret #23: 1919198294239853795375.",
+    "Secret #24: That's very how nice.",
+    "Secret #25: I have more bugs than you.",
+    "Secret #26: Ahhahahahahha.",
+    "Secret #27: When do you think this will be found.",
+    "Secret #28: Idk probably a month after creation.",
+    "Secret #29: Meh maybe.",
+    "Secret #30: 6755.",
+    "Secret #31: Post this on social media for free credit :D.",
+    "Secret #32: ...",
+    "Secret #33: First to find this will be added to the website but tbo if you see this it's probably gone.",
+    "Secret #34: Hahahahahha.",
+    "Secret #35: 35 35.",
+    "Secret #36: Shut up.",
+    "Secret #37: You're annoying and smelly if you found this.",
+    "Secret #38: Loser.",
+    "Secret #39: Winner.",
+    "Secret #40: 0 uscgbf.",
+    "Secret #41: Together we are BugToe.",
+    "Secret #42: 420.",
+    "Secret #43: What if I don't want to.",
+    "Secret #44: MrBeast is so cool.",
+    "Secret #45: What if I was lost in the void and this is some world I made up to be entertained.",
+    "Secret #46: This is my favorite number.",
+    "Secret #47: 420.",
+    "Secret #48: 69.",
+    "Secret #49: Farts.",
+    "Secret #50: 50? Your prize is behind the nearest shady alley on your street (this is a joke for legal reasons).",
+    "Secret #51: Bugs invented toes.",
+    "Secret #52: Toes are portals to bug dimensions.",
+    "Secret #53: Bugs communicate through toe vibrations.",
+    "Secret #54: Toes secretly control the weather.",
+    "Secret #55: Bugs and toes are ancient rivals.",
+    "Secret #56: Toes can predict the future, but only on Tuesdays.",
+    "Secret #57: Bugs have a secret society called 'Toe Illuminati'.",
+    "Secret #58: Toes are allergic to bug laughter.",
+    "Secret #59: Bugs once ruled the world, but toes overthrew them.",
+    "Secret #60: AHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH",
+    "Secret #61: Bugs can read toe thoughts.",
+    "Secret #62: AHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH",
+    "Secret #63: Bugs invented disco to confuse toes.",
+    "Secret #64: Toes can teleport bugs to Mars.",
+    "Secret #65: Bugs have a secret language called 'Toe Morse'.",
+    "Secret #66: Toes are the key to unlocking bug superpowers.",
+    "Secret #67: Bugs once built a toe-shaped spaceship.",
+    "Secret #68: AHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH",
+    "Secret #69: haha 69",
+    "Secret #70: Toes are bug-proof if you wear socks.",
+    "Secret #71: Bugs have a museum dedicated to toes.",
+    "Secret #72: AHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH",
+    "Secret #73: Bugs believe toes are sacred artifacts.",
+    "Secret #74: Toes can speak bug language if trained.",
+    "Secret #75: Bugs once held a toe festival in Antarctica.",
+    "Secret #76: Toes are bug magnets during full moons.",
+    "Secret #77: Bugs can hypnotize toes with their antennae.",
+    "Secret #78: Toes secretly write bug poetry.",
+    "Secret #79: Bugs think toes are aliens.",
+    "Secret #80: Toes can levitate bugs with the right spell.",
+    "Secret #81: Bugs have a toe-shaped constellation.",
+    "Secret #82: Toes are bug-proof if dipped in chocolate.",
+    "Secret #83: Bugs once declared war on toes in 1847.",
+    "Secret #84: Toes can decode bug hieroglyphs.",
+    "Secret #85: Bugs believe toes are the key to immortality.",
+    "Secret #86: Toes can summon bug armies with a whistle.",
+    "Secret #87: Bugs think toes are magical wands.",
+    "Secret #88: Toes glow when bugs tell jokes.",
+    "Secret #89: Bugs have a secret toe treasure map.",
+    "Secret #90: Toes can control bug weather patterns.",
+    "Secret #91: Bugs once built a toe-shaped monument.",
+    "Secret #92: Toes are bug-proof if painted green.",
+    "Secret #93: Bugs think toes are portals to other worlds.",
+    "Secret #94: Toes can sing bug lullabies.",
+    "Secret #95: Bugs believe toes are ancient gods.",
+    "Secret #96: Toes can summon bug rainbows.",
+    "Secret #97: Bugs once held a toe parade in space.",
+    "Secret #98: Toes are bug-proof if covered in glitter.",
+    "Secret #99: Bugs think toes are time machines.",
+    "Secret #100: 100??? wowie .",
+    "Secret #101: Toes hold the key to bug teleportation.",
+    "Secret #102: Bugs once wrote an opera about toes.",
+    "Secret #103: Toes glow when bugs whisper secrets.",
+    "Secret #104: Bugs think toes are their eternal rivals.",
+    "Secret #105: Toes can decode bug languages on Sundays.",
+    "Secret #106: Bugs invented toe-shaped hats for celebrations.",
+    "Secret #107: Toes secretly love bug musicals.",
+    "Secret #108: Bugs believe toes control gravity.",
+    "Secret #109: Toes can summon bugs with a snap of their nails.",
+    "Secret #110: 🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲",
+    "Secret #111: Toes are bug-proof when dipped in glitter glue.",
+    "Secret #112: Bugs once staged a toe revolution.",
+    "Secret #113: 🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶🦶",
+    "Secret #114: Bugs believe toes are sacred relics from the future.",
+    "Secret #115: Toes can glow rainbow colors if bugs sing.",
+    "Secret #116: Bugs use toe-shaped maps for navigation.",
+    "Secret #117: Toes have a secret handshake with bugs.",
+    "Secret #118: Bugs think toes are magical antennas.",
+    "Secret #119: Toes are bug-proof if covered in gold foil.",
+    "Secret #120: Bugs once named a comet after a toe.",
+    "Secret #121: Bugs once built toe-shaped monuments.",
+    "Secret #122: Toes glow blue when bugs giggle.",
+    "Secret #123: Bugs think toes are portals to their home dimension.",
+    "Secret #124: Toes are bug-proof if coated in sticky honey.",
+    "Secret #125: Bugs sing toe anthems during full moons.",
+    "Secret #126: Toes invented bug karaoke.",
+    "Secret #127: Bugs and toes secretly host galactic talent shows.",
+    "Secret #128: Toes can decode bug dreams with a wiggle.",
+    "Secret #129: Bugs once built a toe-themed amusement park.",
+    "Secret #130: Toes are bug-proof if wrapped in soft fabric.",
+    "Secret #131: Bugs think toes are cosmic navigators.",
+    "Secret #132: Toes can summon bug storms on cloudy nights.",
+    "Secret #133: Bugs believe toes have ancient wisdom.",
+    "Secret #134: Toes glow gold when bugs recite poetry.",
+    "Secret #135: Bugs once held a toe festival underwater.",
+    "Secret #136: Toes are bug-proof if dipped in lavender oil.",
+    "Secret #137: Bugs think toes are powerful guardians.",
+    "Secret #138: Toes secretly write bug symphonies.",
+    "Secret #139: Bugs and toes can communicate telepathically.",
+    "Secret #140: Toes glow silver during bug celebrations.",
+    "Secret #141: Bugs once declared toes as mythical treasures.",
+    "Secret #142: Toes are bug-proof if painted with stardust.",
+    "Secret #143: Bugs believe toes are portals to bug paradise.",
+    "Secret #144: Toes glow red when bugs argue nearby.",
+    "Secret #145: Bugs built a toe observatory to study them.",
+    "Secret #146: Toes are bug-proof if coated in peanut butter.",
+    "Secret #147: 🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲🪲",
+    "Secret #148: Toes can decode bug hieroglyphics on ancient walls.",
+    "Secret #149: Bugs believe toes are living artifacts.",
+    "Secret #150: Toes glow lime green during bug rituals.",
+    "Secret #151: Bugs once choreographed a dance inspired by toes.",
+    "Secret #152: Toes are bug-proof if sprinkled with fairy dust.",
+    "Secret #153: Bugs consider toes as legendary explorers.",
+    "Secret #154: Toes can summon bug comets with a whistle.",
+    "Secret #155: Bugs once composed toe-inspired lullabies.",
+    "Secret #156: Toes are bug-proof if coated in sugar crystals.",
+    "Secret #157: Bugs secretly adore toe-shaped cookies.",
+    "Secret #158: Toes can predict bug weather during sunsets.",
+    "Secret #159: 🦟🦟🦟🦟🦟🦟🦟🦟🦟🦟",
+    "Secret #160: Toes glow indigo when bugs dance in harmony.",
+    "Secret #161: Bugs once wrote a novel about toe adventures.",
+    "Secret #162: Toes are bug-proof if submerged in warm chocolate.",
+    "Secret #163: Bugs admire toes as works of art.",
+    "Secret #164: Toes secretly host bug-inspired gala events.",
+    "Secret #165: Bugs think toes are cosmic protectors.",
+    "Secret #166: Toes can sing bug lullabies in cosmic tune.",
+    "Secret #167: Bugs once built toe sculptures out of moon rocks.",
+    "Secret #168:🦶",
+    "Secret #169: Bugs believe toes are immortal beings.",
+    "Secret #170: Toes glow aquamarine when bugs play instruments.",
+    "Secret #171: Bugs once held a toe-inspired world summit.",
+    "Secret #172: Toes are bug-proof if wrapped in sparkling vines.",
+    "Secret #173: Bugs think toes are magical storytellers.",
+    "Secret #174: Toes secretly write bug fairy tales.",
+    "Secret #175: Bugs believe toes are cosmic harmonizers.",
+    "Secret #176: Toes glow orange when bugs whisper their dreams.",
+    "Secret #177: Bugs once built a toe museum on Mars.",
+    "Secret #178: Toes are bug-proof if dipped in enchanted wax.",
+    "Secret #179: Bugs secretly revere toes as celestial companions.",
+    "Secret #180: Toes can summon bug blizzards with a snap.",
+    "Secret #181: Bugs think toes are holders of universal truths.",
+    "Secret #182: Toes glow chartreuse when bugs sing in unison.",
+    "Secret #183: Bugs once composed epic poems about toe bravery.",
+    "Secret #184: Toes are bug-proof if layered in galactic foam.",
+    "Secret #185: Bugs believe toes are timeless inventors.",
+    "Secret #186: Toes secretly host bug-inspired masquerade balls.",
+    "Secret #187: Bugs think toes are mystical symbols of unity.",
+    "Secret #188: Toes glow magenta during bug storytelling festivals.",
+    "Secret #189: Bugs once built toe-shaped libraries in space.",
+    "Secret #190: Toes are bug-proof if sprinkled with vanilla dust.",
+    "Secret #191: Bugs think toes are cosmic bridges.",
+    "Secret #192: Toes secretly direct bug starship navigation.",
+    "Secret #193: Bugs believe toes are architects of the universe.",
+    "Secret #194: Toes glow lilac when bugs recite cosmic odes.",
+    "Secret #195: Bugs consider toes as divine anchors of balance.",
+    "Secret #196: 🪲",
+    "Secret #197: Bugs think toes are harmonizers of galaxies.",
+    "Secret #198: Toes glow sapphire when bugs whisper cosmic secrets.",
+    "Secret #199: Bugs believe toes are celestial gatekeepers.",
+    "Secret #200: Toes are bug-proof if dipped in starry nectar."
+
+];
+
+        function createRandomNote(text) {
+            const note = document.createElement("p");
+            note.className = "note";
+            note.textContent = text;
+
+            // Randomize position and style
+            note.style.top = Math.random() * 90 + "%";
+            note.style.left = Math.random() * 90 + "%";
+            note.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+            document.body.appendChild(note);
+        }
+
+        // Randomly decide how many notes to display (between 0 and the length of the notes array)
+        const noteCount = Math.floor(Math.random() * (notes.length + 1));
+        for (let i = 0; i < noteCount; i++) {
+            createRandomNote(notes[i]);
+        }
+    </script>
+         <nav>
+          <ul>
+            <li><a href="main.html">.</a></li>
+          </ul>
+        </nav>
+</body>
+</html>
