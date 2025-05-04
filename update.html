@@ -5,23 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bug Toe Updates</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .update { border-bottom: 1px solid #ccc; padding: 10px; }
-        .date { font-weight: bold; color: #555; }
+        body {
+            font-family: "Comic Sans MS", sans-serif;
+            background: repeating-linear-gradient(
+                45deg,
+                red, orange, yellow, green, blue, indigo, violet, red 50px
+            );
+            color: yellow;
+            text-shadow: 2px 2px 10px black;
+            animation: spinBackground 5s infinite linear;
+        }
+
+        @keyframes spinBackground {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 50px;
+            text-align: center;
+            transform: rotate(-10deg);
+        }
+
+        .update {
+            border: 5px dotted lime;
+            background: rgba(255, 0, 255, 0.5);
+            padding: 20px;
+            margin: 20px;
+            transform: rotate(5deg);
+        }
+
+        .date {
+            font-weight: bold;
+            font-size: 30px;
+            color: cyan;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Bug Toe Updates</h1>
+    <h1>🐛 Bug Toe Updates 🦶</h1>
 
     <div class="update">
         <p class="date">May 4, 2025</p>
-        <p>We just added a new feature that lets you track bug sightings in real-time!</p>
+        <p>NEW FEATURE: **Bug Vision Mode**—it's so glitchy, you'll wish you never clicked.</p>
     </div>
 
     <div class="update">
         <p class="date">April 20, 2025</p>
-        <p>Bug Toe now has a community forum—join the discussion!</p>
+        <p>We added a button that does **nothing**. Why? **Because we could.**</p>
     </div>
 
 </body>
