@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo Adjustment</title>
+    <title>Further Logo Adjustment</title>
     <style>
         body {
             background-image: url('bg.png');
-            background-size: cover;
-            background-position: center;
+            background-size: 100% 100%; /* Ensures full background coverage */
             background-repeat: no-repeat;
-            height: 100vh;
+            background-position: top center;
+            min-height: 1760px; /* Maintains vertical space for scrolling */
             margin: 0;
             display: flex;
             justify-content: center;
@@ -20,9 +20,9 @@
 
         .logo {
             position: absolute;
-            top: 20%; /* Moves it higher */
-            width: 35%; /* Keeps the size consistent */
-            max-width: 400px; /* Ensures it doesn't get too big */
+            top: 16.25%; /* Moves it up by 2.5x the previous shift */
+            width: 35%; /* Keeps previous size */
+            max-width: 400px;
         }
     </style>
 </head>
