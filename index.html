@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Further Logo Adjustment</title>
+    <title>Mobile Background Fix</title>
     <style>
         body {
             background-image: url('bg.png');
@@ -20,9 +20,17 @@
 
         .logo {
             position: absolute;
-            top: 16.25%; /* Moves it up by 2.5x the previous shift */
-            width: 35%; /* Keeps previous size */
+            top: 16.25%; /* Ensures the logo stays where it should */
+            width: 35%;
             max-width: 400px;
+        }
+
+        /* Mobile-specific fix */
+        @media (max-width: 768px) {
+            body {
+                background-size: 100% auto !important; /* Adjusts scaling for mobile */
+                min-height: 100vh; /* Ensures full screen coverage */
+            }
         }
     </style>
 </head>
