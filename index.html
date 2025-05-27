@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Background Fix</title>
+    <title>Background Tile Fix</title>
     <style>
         body {
-            background-image: url('bg.png');
-            background-size: 100% 100%; /* Ensures full background coverage */
-            background-repeat: no-repeat;
-            background-position: top center;
-            min-height: 1760px; /* Maintains vertical space for scrolling */
+            background-image: url('bg.png'), url('colo.png'); /* Main background + tiled image */
+            background-size: 100% 100%, 100px 100px; /* bg.png covers fully, colo.png tiles */
+            background-repeat: no-repeat, repeat; /* bg.png stays fixed, colo.png repeats */
+            background-position: top center, bottom; /* bg.png aligns properly, colo.png fills gaps */
+            min-height: 1760px; /* Keeps scrollable height */
             margin: 0;
             display: flex;
             justify-content: center;
@@ -20,7 +20,7 @@
 
         .logo {
             position: absolute;
-            top: 16.25%; /* Ensures the logo stays where it should */
+            top: 16.25%; /* Logo remains correctly positioned */
             width: 35%;
             max-width: 400px;
         }
@@ -28,7 +28,7 @@
         /* Mobile-specific fix */
         @media (max-width: 768px) {
             body {
-                background-size: 100% auto !important; /* Adjusts scaling for mobile */
+                background-size: 100% auto, 100px 100px !important; /* Adjust mobile scaling */
                 min-height: 100vh; /* Ensures full screen coverage */
             }
         }
