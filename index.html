@@ -3,42 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BugToe - Bring Bugs to life</title>
+    <title>Subtle Button Adjustment</title>
     <style>
         body {
-            background-image: url('bg.png'), url('colo.png'); /* Main background + tiled image */
-            background-size: 100% 100%, 100px 100px; /* bg.png covers fully, colo.png tiles */
-            background-repeat: no-repeat, repeat; /* bg.png stays fixed, colo.png repeats */
-            background-position: top center, bottom; /* bg.png aligns properly, colo.png fills gaps */
-            min-height: 1760px; /* Keeps scrollable height */
+            background-image: url('bg.png'), url('colo.png');
+            background-size: 100% 100%, 100px 100px;
+            background-repeat: no-repeat, repeat;
+            background-position: top center, bottom;
+            min-height: 1760px;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             position: relative;
         }
 
         .logo {
             position: absolute;
-            top: 16.25%; /* Default logo placement for desktop */
+            top: 16.25%;
             width: 35%;
             max-width: 400px;
         }
 
-        /* Mobile-specific fix */
-        @media (max-width: 768px) {
-            body {
-                background-size: 100% auto, 100px 100px !important; /* Adjusts scaling for mobile */
-                min-height: 100vh; /* Ensures full screen coverage */
-            }
-
-            .logo {
-                top: calc(16.25% - 15%) !important; /* Moves the logo up by 15% on mobile */
-            }
+        .image-button {
+            width: 250px;
+            height: 250px;
+            margin-top: -650px; /* Slightly lowered */
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <img src="log.png" alt="Logo" class="logo">
+    
+    <img src="pl1.png" alt="Button" class="image-button" id="button"
+        onmousedown="playSound('un.mp4'); this.src='pl2.png'" 
+        onmouseup="playSoundThenRedirect('nu.mp4', 'https://www.bugtoe.com/DownloadPage'); this.src='pl1.png'" 
+        ontouchstart="playSound('un.mp4'); this.src='pl2.png'" 
+        ontouchend="playSoundThenRedirect('nu.mp4', 'https://www.bugtoe.com/DownloadPage'); this.src='pl1.png'">
+
+    <audio id="sound"></audio>
+
+    <script>
+        function playSound(file) {
+            let sound = document.getElementById("sound");
+            sound.src = file;
+            sound.currentTime = 0;
+            sound.play();
+        }
+
+        function playSoundThenRedirect(file, url) {
+            let sound = document.getElementById("sound");
+            sound.src = file;
+            sound.currentTime = 0;
+            sound.play();
+
+            sound.onended = function() {
+                window.location.href = url;
+            };
+        }
+    </script>
 </body>
 </html>
