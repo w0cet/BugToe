@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BugToe - Bring bugs to life!</title>
+    <title>Download Bug Toe</title>
     <style>
         body {
             background-image: url('bg.png'), url('colo.png');
@@ -17,6 +17,10 @@
             align-items: center;
             flex-direction: column;
             position: relative;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .logo {
@@ -29,15 +33,40 @@
         .image-button {
             width: 250px;
             height: 250px;
-            margin-top: -650px; /* Slightly lowered */
             cursor: pointer;
+        }
+
+        .text-container {
+            max-width: 600px;
+            padding: 20px;
+            margin-top: 20px;
+            background-image: url('leaf.png');
+            background-size: contain; /* Ensures full image is visible */
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #ffcc00;
+            font-weight: bold;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <img src="log.png" alt="Logo" class="logo">
     
-    <img src="pl1.png" alt="Button" class="image-button" id="button"
+    <img src="pl1.png" alt="Download Button" class="image-button" id="button"
         onmousedown="playSound('un.mp4'); this.src='pl2.png'" 
         onmouseup="playSoundThenRedirect('nu.mp4', 'https://www.bugtoe.com/DownloadPage'); this.src='pl1.png'" 
         ontouchstart="playSound('un.mp4'); this.src='pl2.png'" 
@@ -64,5 +93,13 @@
             };
         }
     </script>
+
+    <div class="text-container">
+        <h1>About Bug Toe</h1>
+        <p>Welcome to Bug Toe! An exciting bug-collecting game designed for young explorers.(6-13+)</p>
+        <p>Click the button above to start your download. The game is safe, kid-friendly, and full of adventure!</p>
+        <p>✔ **No ads**<br>✔ **Some educational bug facts**<br>✔ **Fun & Relaxing gameplay**</p>
+        <p><strong>Need help?</strong> Visit our <a href="https://www.bugtoe.com/help">Help Page</a> for installation guides.</p>
+    </div>
 </body>
 </html>
