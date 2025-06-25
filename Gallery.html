@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nature Gallery</title>
+  <title>Gallery Page</title>
   <style>
     body {
       background-color: #e6f2e6;
-      font-family: sans-serif;
-      color: #2f4f2f;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 1800px;
       background-image: url('bg.png'), url('colo.png');
       background-size: 100% 100%, 100px 100px;
       background-repeat: no-repeat, repeat;
       background-position: top center, bottom;
+      min-height: 1800px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      font-family: sans-serif;
+      color: #2f4f2f;
     }
 
     .logo {
@@ -29,21 +30,28 @@
     .gallery-wrapper {
       margin-top: 700px;
       width: 100%;
-      overflow-x: hidden;
+      overflow: hidden;
       display: flex;
       justify-content: center;
+      align-items: center;
+      height: 240px; /* room for scaled image */
     }
 
     .gallery-container {
       display: flex;
       gap: 2em;
-      transition: transform 0.5s;
+      transition: transform 0.5s ease;
+      align-items: center;
+      padding: 1em;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(60, 100, 60, 0.2);
     }
 
     .gallery-image {
-      width: 140px;
-      height: 100px;
-      object-fit: cover;
+      width: 160px;
+      height: 120px;
+      object-fit: contain;
       opacity: 0.4;
       border-radius: 8px;
       border: 2px solid #98cfa8;
@@ -60,13 +68,13 @@
     }
 
     .controls {
-      margin-top: 1em;
+      margin-top: 1.5em;
       display: flex;
       gap: 1em;
     }
 
     button {
-      padding: 0.5em 1.2em;
+      padding: 0.6em 1.2em;
       font-size: 1em;
       cursor: pointer;
       background-color: #b3ddb3;
@@ -119,7 +127,6 @@
       updateGalleryPosition();
     }
 
-    // Center first image
     window.addEventListener('load', updateGalleryPosition);
     window.addEventListener('resize', updateGalleryPosition);
   </script>
