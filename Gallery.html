@@ -5,7 +5,7 @@
   <title>Gallery Page</title>
   <style>
     body {
-      background-color: #e6f2e6; /* soft green background */
+      background-color: #e6f2e6;
       background-image: url('bg.png'), url('colo.png');
       background-size: 100% 100%, 100px 100px;
       background-repeat: no-repeat, repeat;
@@ -17,7 +17,7 @@
       align-items: center;
       position: relative;
       font-family: sans-serif;
-      color: #2f4f2f; /* earthy text color */
+      color: #2f4f2f;
     }
 
     .logo {
@@ -28,29 +28,33 @@
     }
 
     .gallery-container {
-      margin-top: 700px; /* moved down */
+      margin-top: 700px;
       display: flex;
-      align-items: center;
       gap: 1em;
-      flex-wrap: wrap;
-      box-shadow: 0 4px 10px rgba(60, 100, 60, 0.2);
-      background: rgba(255, 255, 255, 0.6);
+      overflow-x: auto;
+      scroll-behavior: smooth;
       padding: 1em;
       border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(60, 100, 60, 0.2);
+      background: rgba(255, 255, 255, 0.6);
+      max-width: 90%;
     }
 
     .gallery-image {
-      width: 60px;
-      height: 60px;
+      width: 160px;
+      height: 120px;
       object-fit: cover;
       opacity: 0.6;
       transition: opacity 0.3s;
       border-radius: 6px;
       border: 2px solid #98cfa8;
+      flex-shrink: 0;
     }
 
     .gallery-image.active {
       opacity: 1;
+      outline: 3px solid #5f9e74;
+      outline-offset: 2px;
     }
 
     .controls {
@@ -79,7 +83,8 @@
     <img src="img1.jpg" class="gallery-image active" alt="Image 1">
     <img src="img2.jpg" class="gallery-image" alt="Image 2">
     <img src="img3.jpg" class="gallery-image" alt="Image 3">
-    <!-- Add more images here -->
+    <img src="img4.jpg" class="gallery-image" alt="Image 4">
+    <img src="img5.jpg" class="gallery-image" alt="Image 5">
   </div>
 
   <div class="controls">
@@ -89,12 +94,18 @@
 
   <script>
     const images = document.querySelectorAll('.gallery-image');
+    const gallery = document.getElementById('gallery');
     let current = 0;
 
     function changeSlide(step) {
       images[current].classList.remove('active');
       current = (current + step + images.length) % images.length;
       images[current].classList.add('active');
+
+      // Scroll to center active image
+      const img = images[current];
+      const left = img.offsetLeft - gallery.offsetWidth / 2 + img.offsetWidth / 2;
+      gallery.scrollTo({ left, behavior: 'smooth' });
     }
   </script>
 
