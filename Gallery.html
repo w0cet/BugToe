@@ -2,29 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Gallery</title>
+  <title>Gallery Page</title>
   <style>
     body {
+      background-image: url('bg.png'), url('colo.png');
+      background-size: 100% 100%, 100px 100px;
+      background-repeat: no-repeat, repeat;
+      background-position: top center, bottom;
+      min-height: 1760px;
+      margin: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin: 0;
-      padding: 2em;
-      background-color: #f0f0f0;
+      position: relative;
       font-family: sans-serif;
     }
 
+    .logo {
+      position: absolute;
+      top: 16.25%;
+      width: 35%;
+      max-width: 400px;
+    }
+
     .gallery-container {
+      margin-top: 400px; /* to allow space for logo */
       display: flex;
       align-items: center;
       gap: 1em;
+      flex-wrap: wrap;
     }
 
     .gallery-image {
-      width: 200px;
-      height: auto;
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
       opacity: 0.6;
       transition: opacity 0.3s;
+      border-radius: 6px;
     }
 
     .gallery-image.active {
@@ -44,12 +59,16 @@
     }
   </style>
 </head>
+<link rel="shortcut icon" type="image/GIF" href="pfp.png" />
 <body>
+
+  <img src="log.png" alt="Logo" class="logo">
 
   <div class="gallery-container" id="gallery">
     <img src="img1.jpg" class="gallery-image active" alt="Image 1">
     <img src="img2.jpg" class="gallery-image" alt="Image 2">
     <img src="img3.jpg" class="gallery-image" alt="Image 3">
+    <!-- Add more images here -->
   </div>
 
   <div class="controls">
