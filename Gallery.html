@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Gallery Page</title>
+  <meta charset="UTF-8" />
+  <title>Infinite Carousel</title>
   <style>
     body {
       background-color: #e6f2e6;
@@ -45,6 +45,7 @@
       background: rgba(255, 255, 255, 0.6);
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(60, 100, 60, 0.2);
+      will-change: transform;
     }
 
     .gallery-image {
@@ -83,18 +84,24 @@
     }
   </style>
 </head>
-<link rel="shortcut icon" type="image/GIF" href="pfp.png" />
 <body>
 
-  <img src="log.png" alt="Logo" class="logo">
+  <img src="log.png" alt="Logo" class="logo" />
 
   <div class="gallery-wrapper">
     <div class="gallery-container" id="gallery">
-      <img src="img1.jpg" class="gallery-image active" alt="Image 1">
-      <img src="img2.jpg" class="gallery-image" alt="Image 2">
-      <img src="img3.jpg" class="gallery-image" alt="Image 3">
-      <img src="img4.jpg" class="gallery-image" alt="Image 4">
-      <img src="img5.jpg" class="gallery-image" alt="Image 5">
+      <!-- Clone of last image -->
+      <img src="img5.jpg" class="gallery-image" alt="Image 5 Clone" />
+
+      <!-- Main images -->
+      <img src="img1.jpg" class="gallery-image" alt="Image 1" />
+      <img src="img2.jpg" class="gallery-image" alt="Image 2" />
+      <img src="img3.jpg" class="gallery-image" alt="Image 3" />
+      <img src="img4.jpg" class="gallery-image" alt="Image 4" />
+      <img src="img5.jpg" class="gallery-image" alt="Image 5" />
+
+      <!-- Clone of first image -->
+      <img src="img1.jpg" class="gallery-image" alt="Image 1 Clone" />
     </div>
   </div>
 
@@ -105,15 +112,17 @@
 
   <script>
     const gallery = document.getElementById('gallery');
-    const images = document.querySelectorAll('.gallery-image');
-    let current = 0;
+    const images = gallery.querySelectorAll('.gallery-image');
+    const realCount = 5;
+    let current = 1; // starts at img1.jpg (after the first clone)
 
-    function updateGalleryPosition() {
+    function updateGalleryPosition(instant = false) {
       const activeImg = images[current];
       const galleryRect = gallery.getBoundingClientRect();
       const imgRect = activeImg.getBoundingClientRect();
       const scrollOffset = (imgRect.left + imgRect.width / 2) - (galleryRect.left + galleryRect.width / 2);
 
+      gallery.style.transition = instant ? 'none' : 'transform 0.5s ease';
       gallery.style.transform = `translateX(${-scrollOffset}px)`;
 
       images.forEach((img, i) => {
@@ -122,12 +131,25 @@
     }
 
     function changeSlide(step) {
-      current = (current + step + images.length) % images.length;
+      current += step;
+
+      gallery.style.transition = 'transform 0.5s ease';
       updateGalleryPosition();
+
+      // Handle wrap-around when animation ends
+      setTimeout(() => {
+        if (current === 0) {
+          current = realCount;
+          updateGalleryPosition(true);
+        } else if (current === realCount + 1) {
+          current = 1;
+          updateGalleryPosition(true);
+        }
+      }, 510); // slightly more than the transition duration
     }
 
-    window.addEventListener('load', updateGalleryPosition);
-    window.addEventListener('resize', updateGalleryPosition);
+    window.addEventListener('load', () => updateGalleryPosition(true));
+    window.addEventListener('resize', () => updateGalleryPosition(true));
   </script>
 
 </body>
