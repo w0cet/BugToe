@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 2em;
+      background-color: #f0f0f0;
+      font-family: sans-serif;
+    }
+
+    .gallery-container {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+
+    .gallery-image {
+      width: 200px;
+      height: auto;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-image.active {
+      opacity: 1;
+    }
+
+    .controls {
+      margin-top: 1em;
+      display: flex;
+      gap: 1em;
+    }
+
+    button {
+      padding: 0.5em 1em;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery-container" id="gallery">
+    <img src="img1.jpg" class="gallery-image active" alt="Image 1">
+    <img src="img2.jpg" class="gallery-image" alt="Image 2">
+    <img src="img3.jpg" class="gallery-image" alt="Image 3">
+  </div>
+
+  <div class="controls">
+    <button onclick="changeSlide(-1)">⟸ Back</button>
+    <button onclick="changeSlide(1)">Next ⟹</button>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.gallery-image');
+    let current = 0;
+
+    function changeSlide(step) {
+      images[current].classList.remove('active');
+      current = (current + step + images.length) % images.length;
+      images[current].classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
