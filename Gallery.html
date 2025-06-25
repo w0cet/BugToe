@@ -15,7 +15,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
       font-family: sans-serif;
       color: #2f4f2f;
     }
@@ -34,15 +33,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 240px; /* room for scaled image */
+      height: 260px;
     }
 
     .gallery-container {
       display: flex;
       gap: 2em;
+      padding: 1em 200px; /* this creates space so the first/last image can be centered */
       transition: transform 0.5s ease;
       align-items: center;
-      padding: 1em;
       background: rgba(255, 255, 255, 0.6);
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(60, 100, 60, 0.2);
@@ -96,6 +95,9 @@
       <img src="img3.jpg" class="gallery-image" alt="Image 3">
       <img src="img4.jpg" class="gallery-image" alt="Image 4">
       <img src="img5.jpg" class="gallery-image" alt="Image 5">
+      <img src="img6.jpg" class="gallery-image" alt="Image 6">
+      <img src="img7.jpg" class="gallery-image" alt="Image 7">
+      <img src="img8.jpg" class="gallery-image" alt="Image 8">
     </div>
   </div>
 
@@ -110,10 +112,10 @@
     let current = 0;
 
     function updateGalleryPosition() {
-      const img = images[current];
-      const containerCenter = gallery.offsetWidth / 2;
-      const imgCenter = img.offsetLeft + img.offsetWidth / 2;
-      const scrollOffset = imgCenter - containerCenter;
+      const activeImg = images[current];
+      const galleryRect = gallery.getBoundingClientRect();
+      const imgRect = activeImg.getBoundingClientRect();
+      const scrollOffset = (imgRect.left + imgRect.width / 2) - (galleryRect.left + galleryRect.width / 2);
 
       gallery.style.transform = `translateX(${-scrollOffset}px)`;
 
