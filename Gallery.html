@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Infinite Caarousel</title>
+  <title>Infinite Carousel</title>
   <style>
     body {
       background-color: #e6f2e6;
@@ -94,7 +94,7 @@
 
   <div class="gallery-wrapper">
     <div class="gallery-container" id="gallery">
-      <!-- Clones of last two images -->
+      <!-- Clones of last 4 images -->
       <img src="img2.jpg" class="gallery-image" alt="Clone 2" />
       <img src="img3.jpg" class="gallery-image" alt="Clone 3" />
       <img src="img4.jpg" class="gallery-image" alt="Clone 4" />
@@ -107,7 +107,7 @@
       <img src="img4.jpg" class="gallery-image" alt="Image 4" />
       <img src="img5.jpg" class="gallery-image" alt="Image 5" />
 
-      <!-- Clones of first two images -->
+      <!-- Clones of first 4 images -->
       <img src="img1.jpg" class="gallery-image" alt="Clone 1" />
       <img src="img2.jpg" class="gallery-image" alt="Clone 2" />
       <img src="img3.jpg" class="gallery-image" alt="Clone 3" />
@@ -124,7 +124,8 @@
     const gallery = document.getElementById('gallery');
     const images = gallery.querySelectorAll('.gallery-image');
     const realCount = 5;
-    let current = 2;
+    const cloneCount = 4;
+    let current = cloneCount;
 
     function updateGalleryPosition(instant = false) {
       const activeImg = images[current];
@@ -157,11 +158,11 @@
       updateGalleryPosition();
 
       setTimeout(() => {
-        if (current < 2) {
-          current = realCount + 1;
+        if (current < cloneCount) {
+          current = realCount + cloneCount - 1;
           updateGalleryPosition(true);
-        } else if (current > realCount + 1) {
-          current = 2;
+        } else if (current > realCount + cloneCount - 1) {
+          current = cloneCount;
           updateGalleryPosition(true);
         }
       }, 510);
