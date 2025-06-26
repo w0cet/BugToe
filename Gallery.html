@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Infinite Carousel1</title>
+  <title>Infinite Carousel</title>
   <style>
     body {
       background-color: #e6f2e6;
@@ -67,6 +67,10 @@
       outline-offset: 2px;
     }
 
+    .gallery-image.active-no-anim {
+      transition: none !important;
+    }
+
     .controls {
       margin-top: 1.5em;
       display: flex;
@@ -116,40 +120,10 @@
     const gallery = document.getElementById('gallery');
     const images = gallery.querySelectorAll('.gallery-image');
     const realCount = 5;
-    let current = 2; // Start at img1 (after 2 clones)
+    let current = 2;
 
     function updateGalleryPosition(instant = false) {
       const activeImg = images[current];
       const galleryRect = gallery.getBoundingClientRect();
       const imgRect = activeImg.getBoundingClientRect();
-      const scrollOffset = (imgRect.left + imgRect.width / 2) - (galleryRect.left + galleryRect.width / 2);
-
-      gallery.style.transition = instant ? 'none' : 'transform 0.5s ease';
-      gallery.style.transform = `translateX(${-scrollOffset}px)`;
-
-      images.forEach((img, i) => {
-        img.classList.toggle('active', i === current);
-      });
-    }
-
-    function changeSlide(step) {
-      current += step;
-      updateGalleryPosition();
-
-      setTimeout(() => {
-        if (current < 2) {
-          current = realCount + 1;
-          updateGalleryPosition(true);
-        } else if (current > realCount + 1) {
-          current = 2;
-          updateGalleryPosition(true);
-        }
-      }, 510);
-    }
-
-    window.addEventListener('load', () => updateGalleryPosition(true));
-    window.addEventListener('resize', () => updateGalleryPosition(true));
-  </script>
-
-</body>
-</html>
+      const scrollOffset = (imgRect.left + imgRect.width / 2) - (galleryRect.left
