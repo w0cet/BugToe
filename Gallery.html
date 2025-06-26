@@ -90,8 +90,9 @@
 
   <div class="gallery-wrapper">
     <div class="gallery-container" id="gallery">
-      <!-- Clone of last image -->
-      <img src="img5.jpg" class="gallery-image" alt="Image 5 Clone" />
+      <!-- Clones of last two images -->
+      <img src="img4.jpg" class="gallery-image" alt="Clone 4" />
+      <img src="img5.jpg" class="gallery-image" alt="Clone 5" />
 
       <!-- Main images -->
       <img src="img1.jpg" class="gallery-image" alt="Image 1" />
@@ -100,8 +101,9 @@
       <img src="img4.jpg" class="gallery-image" alt="Image 4" />
       <img src="img5.jpg" class="gallery-image" alt="Image 5" />
 
-      <!-- Clone of first image -->
-      <img src="img1.jpg" class="gallery-image" alt="Image 1 Clone" />
+      <!-- Clones of first two images -->
+      <img src="img1.jpg" class="gallery-image" alt="Clone 1" />
+      <img src="img2.jpg" class="gallery-image" alt="Clone 2" />
     </div>
   </div>
 
@@ -114,7 +116,7 @@
     const gallery = document.getElementById('gallery');
     const images = gallery.querySelectorAll('.gallery-image');
     const realCount = 5;
-    let current = 1; // starts at img1.jpg (after the first clone)
+    let current = 2; // Start at img1 (after 2 clones)
 
     function updateGalleryPosition(instant = false) {
       const activeImg = images[current];
@@ -132,20 +134,17 @@
 
     function changeSlide(step) {
       current += step;
-
-      gallery.style.transition = 'transform 0.5s ease';
       updateGalleryPosition();
 
-      // Handle wrap-around when animation ends
       setTimeout(() => {
-        if (current === 0) {
-          current = realCount;
+        if (current < 2) {
+          current = realCount + 1;
           updateGalleryPosition(true);
-        } else if (current === realCount + 1) {
-          current = 1;
+        } else if (current > realCount + 1) {
+          current = 2;
           updateGalleryPosition(true);
         }
-      }, 510); // slightly more than the transition duration
+      }, 510);
     }
 
     window.addEventListener('load', () => updateGalleryPosition(true));
