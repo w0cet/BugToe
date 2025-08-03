@@ -6,52 +6,42 @@
   <title>Bugtoe Countdown</title>
   <style>
     body {
-      background-color: #000;
-      color: #f5f5f5;
-      font-family: 'Georgia', serif;
+      background-color: black;
+      color: #eaeaea;
+      font-family: 'Times New Roman', Times, serif;
       text-align: center;
-      padding: 50px;
+      padding: 100px 20px;
     }
 
     h1 {
       font-size: 4rem;
-      letter-spacing: 2px;
+      font-weight: normal;
       font-style: italic;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
-    #timer {
-      font-size: 1.8rem;
-      margin-top: 20px;
+    #days {
+      font-size: 2.5rem;
+      font-weight: lighter;
     }
   </style>
 </head>
 <body>
   <h1>Bugtoe</h1>
-  <div id="timer">Calculating time...</div>
+  <div id="days">...</div>
 
   <script>
-    function updateCountdown() {
+    function updateDaysLeft() {
       const targetDate = new Date('2025-11-08T00:00:00');
       const now = new Date();
       const timeDiff = targetDate - now;
+      const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
-      if (timeDiff <= 0) {
-        document.getElementById('timer').textContent = "Bugtoe has arrived!";
-        return;
-      }
-
-      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
-      const seconds = Math.floor((timeDiff / 1000) % 60);
-
-      document.getElementById('timer').textContent =
-        `${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds until Bugtoe.`;
+      document.getElementById('days').textContent =
+        `${daysLeft} days left`;
     }
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    updateDaysLeft();
   </script>
 </body>
 </html>
