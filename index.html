@@ -9,18 +9,28 @@
       height: auto;
       min-height: 100vh;
       overflow-y: scroll;
-      background: linear-gradient(45deg, lime, magenta, cyan, orange);
-      color: #FFF000;
       font-family: 'Papyrus', fantasy;
       text-align: center;
       position: relative;
+      background: linear-gradient(45deg, lime, magenta, cyan, orange);
+      animation: pulseBG 10s infinite linear;
     }
+
+    @keyframes pulseBG {
+      0%   { background: linear-gradient(45deg, lime, magenta, cyan, orange); }
+      25%  { background: linear-gradient(45deg, red, yellow, blue, green); }
+      50%  { background: linear-gradient(45deg, hotpink, turquoise, gold, violet); }
+      75%  { background: linear-gradient(45deg, orange, indigo, lime, skyblue); }
+      100% { background: linear-gradient(45deg, lime, magenta, cyan, orange); }
+    }
+
     h1 {
       font-size: 60px;
       color: #ff00ff;
       text-shadow: 3px 3px 10px #00ffff;
       transform: rotate(-5deg);
     }
+
     .container {
       margin: 20px auto;
       padding: 20px;
@@ -31,14 +41,17 @@
       position: relative;
       z-index: 1;
     }
+
     .bug {
       font-size: 120px;
       animation: spinny 2s infinite alternate;
     }
+
     @keyframes spinny {
       from { transform: rotate(-20deg) scale(1); }
-      to { transform: rotate(20deg) scale(1.2); }
+      to   { transform: rotate(20deg) scale(1.2); }
     }
+
     .floating-layer {
       position: fixed;
       top: 0;
@@ -48,14 +61,71 @@
       pointer-events: none;
       z-index: 9999;
     }
+
     .floating-text {
       position: absolute;
       font-family: 'Comic Sans MS', cursive;
       white-space: nowrap;
     }
+
     .scroll-buffer {
       height: 100000px;
       background: transparent;
+    }
+
+    /* Glitch variants */
+    .glitch-1:hover {
+      animation: glitch1 0.3s infinite;
+      filter: hue-rotate(90deg) contrast(200%) brightness(150%);
+      transform: skewX(10deg) scale(1.1);
+      opacity: 0.8;
+    }
+    .glitch-2:hover {
+      animation: glitch2 0.4s infinite;
+      filter: blur(2px) brightness(180%);
+      transform: rotate(5deg) scale(1.2);
+    }
+    .glitch-3:hover {
+      animation: glitch3 0.2s infinite;
+      filter: grayscale(100%) contrast(300%);
+      transform: skewY(15deg) scale(0.9);
+    }
+    .glitch-4:hover {
+      animation: glitch4 0.5s infinite;
+      filter: invert(100%) saturate(200%);
+      transform: rotate(-10deg) scale(1.05);
+    }
+    .glitch-5:hover {
+      animation: glitch5 0.3s infinite;
+      filter: sepia(100%) hue-rotate(180deg);
+      transform: scale(1.3) skewX(-5deg);
+    }
+
+    /* Glitch keyframes */
+    @keyframes glitch1 {
+      0%   { transform: translate(0, 0); opacity: 0.8; }
+      50%  { transform: translate(-2px, 2px); opacity: 0.6; }
+      100% { transform: translate(2px, -2px); opacity: 1; }
+    }
+    @keyframes glitch2 {
+      0%   { transform: rotate(0deg); }
+      50%  { transform: rotate(10deg); }
+      100% { transform: rotate(-10deg); }
+    }
+    @keyframes glitch3 {
+      0%   { transform: skewY(0deg); }
+      50%  { transform: skewY(20deg); }
+      100% { transform: skewY(-20deg); }
+    }
+    @keyframes glitch4 {
+      0%   { transform: rotate(0deg); }
+      50%  { transform: rotate(15deg); }
+      100% { transform: rotate(-15deg); }
+    }
+    @keyframes glitch5 {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.4); }
+      100% { transform: scale(0.8); }
     }
   </style>
 </head>
@@ -93,23 +163,53 @@
 
   <script>
     const phrases = [
-      "🧠 Echoes of forgotten algorithms",
-      "🥄 Spoon-based surveillance active",
-      "🌌 Cosmic lint detected",
-      "📡 Signal lost in the soup",
-      "🪲 BugToe is watching",
-      "🧃 Juice of temporal distortion",
-      "🧤 Gloves are optional in this dimension",
-      "📎 Sentient paperclip uprising imminent",
-      "🪐 Orbiting thoughts at unsafe velocity",
-      "🧬 DNA rewritten by ambient jazz"
+      "XDDD",
+      "XPPP",
+      ":/",
+      "/e dance",
+      "cant be that yummie lamp",
+      "XaewfDyfdsasd",
+      "hey hey you you",
+      "man im so cool",
+      "TE EPIC DUCK IS COMMING!!!!",
+      "The bugs are comming",
+      "webby site so kewl am i right",
+      "im a rockstar",
+      "XDDD",
+      "woahs",
+      "imagine if i get in fortnight lols",
+      "amngus",
+      "ha ha",
+      "heheheh",
+      "project website idk fun fun",
+      "NO WAY NO WAY",
+      "FUN",
+      "FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN",
+      "HAW HAW",
+      "idk what im rlly doin",
+      "WE ALL LOVE STAMPY",
+      "R.I.P technoblade",
+      "nyan cat on top",
+      "idk",
+      "squbgam",
+      "so whatever",
+      "but hey thats just a idk",
+      "Lore matpat omg game theory game gehighidgdfihihdgf",
+      "prsnn",
+      "i am me -me",
+      "HUKDXZFSHDFJKVKYNTGUDB",
+      "maybe",
+      "Uhhhhhhh",
+      "unsafe lemon",
+      "What the when"
     ];
     const colors = ['#ff00ff', '#00ffff', '#ffff00', '#ff4500', '#00ff00', '#ff69b4', '#8a2be2'];
+    const glitchClasses = ['glitch-1', 'glitch-2', 'glitch-3', 'glitch-4', 'glitch-5'];
     const layer = document.getElementById('floatingLayer');
 
     for (let i = 0; i < 100; i++) {
       const text = document.createElement('div');
-      text.className = 'floating-text';
+      text.className = 'floating-text ' + glitchClasses[Math.floor(Math.random() * glitchClasses.length)];
       text.textContent = phrases[Math.floor(Math.random() * phrases.length)];
       text.style.color = colors[Math.floor(Math.random() * colors.length)];
       text.style.fontSize = (Math.random() * 20 + 16) + 'px';
@@ -119,8 +219,8 @@
 
       let x = parseFloat(text.style.left);
       let y = parseFloat(text.style.top);
-      let dx = (Math.random() - 0.5) * 1.5;
-      let dy = (Math.random() - 0.5) * 1.5;
+      let dx = (Math.random() - 0.5) * 4;
+      let dy = (Math.random() - 0.5) * 4;
 
       function animate() {
         x += dx;
@@ -140,6 +240,3 @@
 
       animate();
     }
-  </script>
-</body>
-</html>
