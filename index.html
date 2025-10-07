@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BugToe - Department of Experimental Logic</title>
   <style>
-    body {
+    html, body {
+      height: auto;
+      min-height: 100vh;
+      overflow-y: scroll;
       background: linear-gradient(45deg, lime, magenta, cyan, orange);
       color: #FFF000;
       font-family: 'Papyrus', fantasy;
       text-align: center;
       position: relative;
-      overflow: hidden;
     }
     h1 {
       font-size: 60px;
@@ -44,6 +46,10 @@
       white-space: nowrap;
       z-index: 0;
     }
+    .scroll-buffer {
+      height: 100000px; /* Insane scroll freedom */
+      background: transparent;
+    }
   </style>
 </head>
 <body>
@@ -73,6 +79,9 @@
     </ul>
   </div>
 
+  <!-- Scroll buffer for infinite vertical space -->
+  <div class="scroll-buffer"></div>
+
   <!-- Bouncing surreal text -->
   <script>
     const phrases = [
@@ -100,7 +109,7 @@
       text.style.color = getRandomColor();
       text.style.fontSize = (Math.random() * 20 + 16) + 'px';
       text.style.left = Math.random() * window.innerWidth + 'px';
-      text.style.top = Math.random() * window.innerHeight + 'px';
+      text.style.top = Math.random() * window.innerHeight + window.scrollY + 'px';
       document.body.appendChild(text);
 
       let x = parseFloat(text.style.left);
@@ -116,7 +125,7 @@
         const height = text.offsetHeight;
 
         if (x < 0 || x + width > window.innerWidth) dx *= -1;
-        if (y < 0 || y + height > window.innerHeight) dy *= -1;
+        if (y < window.scrollY || y + height > window.scrollY + window.innerHeight) dy *= -1;
 
         text.style.left = x + 'px';
         text.style.top = y + 'px';
