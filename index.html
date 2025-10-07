@@ -1,117 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BugToe - Department of Experimental Logic</title>
-    <style>
-        body {
-            background: linear-gradient(45deg, lime, magenta, cyan, orange);
-            color: #FFF000;
-            font-family: 'Papyrus', fantasy;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        h1 {
-            font-size: 60px;
-            color: #ff00ff;
-            text-shadow: 3px 3px 10px #00ffff;
-            transform: rotate(-5deg);
-        }
-        .container {
-            margin: 20px auto;
-            padding: 20px;
-            border: 10px solid #00ff00;
-            background: repeating-radial-gradient(circle, blue, pink, yellow, red);
-            width: 80%;
-            box-shadow: 0px 0px 20px #ff4500;
-        }
-        .bug {
-            font-size: 120px;
-            animation: spinny 2s infinite alternate;
-        }
-        @keyframes spinny {
-            from { transform: rotate(-20deg) scale(1); }
-            to { transform: rotate(20deg) scale(1.2); }
-        }
-
-        .floating-text {
-            position: absolute;
-            font-size: 20px;
-            font-family: 'Comic Sans MS', cursive;
-            animation: drift 10s infinite linear;
-            pointer-events: none;
-        }
-
-        @keyframes drift {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            50% { transform: translateY(-100px) rotate(360deg); opacity: 0.7; }
-            100% { transform: translateY(0) rotate(720deg); opacity: 1; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BugToe - Department of Experimental Logic</title>
+  <style>
+    body {
+      background: linear-gradient(45deg, lime, magenta, cyan, orange);
+      color: #FFF000;
+      font-family: 'Papyrus', fantasy;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 60px;
+      color: #ff00ff;
+      text-shadow: 3px 3px 10px #00ffff;
+      transform: rotate(-5deg);
+    }
+    .container {
+      margin: 20px auto;
+      padding: 20px;
+      border: 10px solid #00ff00;
+      background: repeating-radial-gradient(circle, blue, pink, yellow, red);
+      width: 80%;
+      box-shadow: 0px 0px 20px #ff4500;
+      position: relative;
+      z-index: 1;
+    }
+    .bug {
+      font-size: 120px;
+      animation: spinny 2s infinite alternate;
+    }
+    @keyframes spinny {
+      from { transform: rotate(-20deg) scale(1); }
+      to { transform: rotate(20deg) scale(1.2); }
+    }
+    .floating-text {
+      position: absolute;
+      font-family: 'Comic Sans MS', cursive;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
-    <h1>BugToe: Department of Experimental Logic</h1>
-    
-    <div class="container">
-        <p class="bug">🪲</p>
-        <p><strong>Founded:</strong> In an undisclosed location that may or may not exist.</p>
-        <p><strong>Official Statement:</strong> Reality is subjective. We exist only if you acknowledge us.</p>
+  <h1>BugToe: Department of Experimental Logic</h1>
 
-        <h2>📂 Ongoing Investigations</h2>
-        <ul>
-            <li>Discovering the hidden intelligence of shoelaces.</li>
-            <li>The hypothetical time travel properties loop holes</li>
-            <li>Investigating whether doors are secretly judging us.</li>
-            <li>Analyzing the behavioral patterns of unread emails.</li>
-            <li>Finding who asked</li>
-            <li>getting 20% cooler</li>
-        </ul>
+  <div class="container">
+    <p class="bug">🪲</p>
+    <p><strong>Founded:</strong> In an undisclosed location that may or may not exist.</p>
+    <p><strong>Official Statement:</strong> Reality is subjective. We exist only if you acknowledge us.</p>
 
-        <h2>📊 Latest Research Findings</h2>
-        <ul>
-            <li>It is scientifically impossible to *prove* that Plants aren’t sentient.</li>
-            <li>All known fish are capable of learning basic algebra, but they never tried to.</li>
-            <li>Every spider You see is actually watching you.</li>
-            <li>Hats increase Popularity when worn indoors.</li>
-        </ul>
-    </div>
+    <h2>📂 Ongoing Investigations</h2>
+    <ul>
+      <li>Discovering the hidden intelligence of shoelaces.</li>
+      <li>The hypothetical time travel properties loop holes</li>
+      <li>Investigating whether doors are secretly judging us.</li>
+      <li>Analyzing the behavioral patterns of unread emails.</li>
+      <li>Finding who asked</li>
+      <li>Getting 20% cooler</li>
+    </ul>
 
-    <!-- Surreal floating text fragments -->
-    <script>
-        const phrases = [
-            "🧠 Echoes of forgotten algorithms",
-            "🥄 Spoon-based surveillance active",
-            "🌌 Cosmic lint detected",
-            "📡 Signal lost in the soup",
-            "🪲 BugToe is watching",
-            "🧃 Juice of temporal distortion",
-            "🧤 Gloves are optional in this dimension",
-            "📎 Sentient paperclip uprising imminent",
-            "🪐 Orbiting thoughts at unsafe velocity",
-            "🧬 DNA rewritten by ambient jazz"
-        ];
+    <h2>📊 Latest Research Findings</h2>
+    <ul>
+      <li>It is scientifically impossible to *prove* that plants aren’t sentient.</li>
+      <li>All known fish are capable of learning basic algebra, but they never tried to.</li>
+      <li>Every spider you see is actually watching you.</li>
+      <li>Hats increase popularity when worn indoors.</li>
+    </ul>
+  </div>
 
-        function getRandomColor() {
-            const colors = ['#ff00ff', '#00ffff', '#ffff00', '#ff4500', '#00ff00', '#ff69b4', '#8a2be2'];
-            return colors[Math.floor(Math.random() * colors.length)];
-        }
+  <!-- Bouncing surreal text -->
+  <script>
+    const phrases = [
+      "🧠 Echoes of forgotten algorithms",
+      "🥄 Spoon-based surveillance active",
+      "🌌 Cosmic lint detected",
+      "📡 Signal lost in the soup",
+      "🪲 BugToe is watching",
+      "🧃 Juice of temporal distortion",
+      "🧤 Gloves are optional in this dimension",
+      "📎 Sentient paperclip uprising imminent",
+      "🪐 Orbiting thoughts at unsafe velocity",
+      "🧬 DNA rewritten by ambient jazz"
+    ];
+    const colors = ['#ff00ff', '#00ffff', '#ffff00', '#ff4500', '#00ff00', '#ff69b4', '#8a2be2'];
 
-        function spawnFloatingText() {
-            const text = document.createElement('div');
-            text.className = 'floating-text';
-            text.textContent = phrases[Math.floor(Math.random() * phrases.length)];
-            text.style.left = Math.random() * window.innerWidth + 'px';
-            text.style.top = Math.random() * window.innerHeight + 'px';
-            text.style.color = getRandomColor();
-            text.style.fontSize = (Math.random() * 20 + 16) + 'px';
-            document.body.appendChild(text);
+    function getRandomColor() {
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
 
-            setTimeout(() => text.remove(), 10000);
-        }
+    function spawnFloatingText() {
+      const text = document.createElement('div');
+      text.className = 'floating-text';
+      text.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+      text.style.color = getRandomColor();
+      text.style.fontSize = (Math.random() * 20 + 16) + 'px';
+      text.style.left = Math.random() * window.innerWidth + 'px';
+      text.style.top = Math.random() * window.innerHeight + 'px';
+      document.body.appendChild(text);
 
-        setInterval(spawnFloatingText, 1500);
-    </script>
+      let x = parseFloat(text.style.left);
+      let y = parseFloat(text.style.top);
+      let dx = (Math.random() - 0.5) * 2;
+      let dy = (Math.random() - 0.5) * 2;
+
+      function animate() {
+        x += dx;
+        y += dy;
+
+        const width = text.offsetWidth;
+        const height = text.offsetHeight;
+
+        if (x < 0 || x + width > window.innerWidth) dx *= -1;
+        if (y < 0 || y + height > window.innerHeight) dy *= -1;
+
+        text.style.left = x + 'px';
+        text.style.top = y + 'px';
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+
+      setTimeout(() => text.remove(), 15000);
+    }
+
+    setInterval(spawnFloatingText, 1200);
+  </script>
 </body>
 </html>
