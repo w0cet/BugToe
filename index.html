@@ -11,6 +11,7 @@
             font-family: 'Papyrus', fantasy;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
         h1 {
             font-size: 60px;
@@ -34,34 +35,83 @@
             from { transform: rotate(-20deg) scale(1); }
             to { transform: rotate(20deg) scale(1.2); }
         }
+
+        .floating-text {
+            position: absolute;
+            font-size: 20px;
+            font-family: 'Comic Sans MS', cursive;
+            animation: drift 10s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes drift {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-100px) rotate(360deg); opacity: 0.7; }
+            100% { transform: translateY(0) rotate(720deg); opacity: 1; }
+        }
     </style>
 </head>
 <body>
     <h1>BugToe: Department of Experimental Logic</h1>
     
     <div class="container">
-        <p class="bug">🦗</p>
+        <p class="bug">🪲</p>
         <p><strong>Founded:</strong> In an undisclosed location that may or may not exist.</p>
         <p><strong>Official Statement:</strong> Reality is subjective. We exist only if you acknowledge us.</p>
 
         <h2>📂 Ongoing Investigations</h2>
         <ul>
             <li>Discovering the hidden intelligence of shoelaces.</li>
-            <li>The hypothetical time travel properties of soup at 73°C.</li>
+            <li>The hypothetical time travel properties loop holes</li>
             <li>Investigating whether doors are secretly judging us.</li>
             <li>Analyzing the behavioral patterns of unread emails.</li>
+            <li>Finding who asked</li>
+            <li>getting 20% cooler</li>
         </ul>
 
         <h2>📊 Latest Research Findings</h2>
         <ul>
-            <li>It is scientifically impossible to *prove* that chairs aren’t sentient.</li>
-            <li>All known fish are capable of learning basic algebra, but they refuse to.</li>
-            <li>Every third cloud in the sky is actually watching you.</li>
-            <li>Hats increase height perception by exactly 9.3% when worn indoors.</li>
+            <li>It is scientifically impossible to *prove* that Plants aren’t sentient.</li>
+            <li>All known fish are capable of learning basic algebra, but they never tried to.</li>
+            <li>Every spider You see is actually watching you.</li>
+            <li>Hats increase Popularity when worn indoors.</li>
         </ul>
-
-        <h2>🚨 Official Warning</h2>
-        <p>Prolonged exposure to BugToe may result in unexplained bursts of inspiration, misinterpreted deja vu, and irrational fear of spoons.</p>
     </div>
+
+    <!-- Surreal floating text fragments -->
+    <script>
+        const phrases = [
+            "🧠 Echoes of forgotten algorithms",
+            "🥄 Spoon-based surveillance active",
+            "🌌 Cosmic lint detected",
+            "📡 Signal lost in the soup",
+            "🪲 BugToe is watching",
+            "🧃 Juice of temporal distortion",
+            "🧤 Gloves are optional in this dimension",
+            "📎 Sentient paperclip uprising imminent",
+            "🪐 Orbiting thoughts at unsafe velocity",
+            "🧬 DNA rewritten by ambient jazz"
+        ];
+
+        function getRandomColor() {
+            const colors = ['#ff00ff', '#00ffff', '#ffff00', '#ff4500', '#00ff00', '#ff69b4', '#8a2be2'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function spawnFloatingText() {
+            const text = document.createElement('div');
+            text.className = 'floating-text';
+            text.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+            text.style.left = Math.random() * window.innerWidth + 'px';
+            text.style.top = Math.random() * window.innerHeight + 'px';
+            text.style.color = getRandomColor();
+            text.style.fontSize = (Math.random() * 20 + 16) + 'px';
+            document.body.appendChild(text);
+
+            setTimeout(() => text.remove(), 10000);
+        }
+
+        setInterval(spawnFloatingText, 1500);
+    </script>
 </body>
 </html>
