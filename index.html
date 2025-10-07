@@ -39,15 +39,22 @@
       from { transform: rotate(-20deg) scale(1); }
       to { transform: rotate(20deg) scale(1.2); }
     }
+    .floating-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
     .floating-text {
       position: absolute;
       font-family: 'Comic Sans MS', cursive;
-      pointer-events: none;
       white-space: nowrap;
-      z-index: 0;
     }
     .scroll-buffer {
-      height: 100000px; /* Insane scroll freedom */
+      height: 100000px;
       background: transparent;
     }
   </style>
@@ -79,10 +86,11 @@
     </ul>
   </div>
 
-  <!-- Scroll buffer for infinite vertical space -->
   <div class="scroll-buffer"></div>
 
-  <!-- Bouncing surreal text -->
+  <!-- Floating chaos layer -->
+  <div class="floating-layer" id="floatingLayer"></div>
+
   <script>
     const phrases = [
       "🧠 Echoes of forgotten algorithms",
@@ -97,25 +105,22 @@
       "🧬 DNA rewritten by ambient jazz"
     ];
     const colors = ['#ff00ff', '#00ffff', '#ffff00', '#ff4500', '#00ff00', '#ff69b4', '#8a2be2'];
+    const layer = document.getElementById('floatingLayer');
 
-    function getRandomColor() {
-      return colors[Math.floor(Math.random() * colors.length)];
-    }
-
-    function spawnFloatingText() {
+    for (let i = 0; i < 100; i++) {
       const text = document.createElement('div');
       text.className = 'floating-text';
       text.textContent = phrases[Math.floor(Math.random() * phrases.length)];
-      text.style.color = getRandomColor();
+      text.style.color = colors[Math.floor(Math.random() * colors.length)];
       text.style.fontSize = (Math.random() * 20 + 16) + 'px';
       text.style.left = Math.random() * window.innerWidth + 'px';
-      text.style.top = Math.random() * window.innerHeight + window.scrollY + 'px';
-      document.body.appendChild(text);
+      text.style.top = Math.random() * window.innerHeight + 'px';
+      layer.appendChild(text);
 
       let x = parseFloat(text.style.left);
       let y = parseFloat(text.style.top);
-      let dx = (Math.random() - 0.5) * 2;
-      let dy = (Math.random() - 0.5) * 2;
+      let dx = (Math.random() - 0.5) * 1.5;
+      let dy = (Math.random() - 0.5) * 1.5;
 
       function animate() {
         x += dx;
@@ -125,7 +130,7 @@
         const height = text.offsetHeight;
 
         if (x < 0 || x + width > window.innerWidth) dx *= -1;
-        if (y < window.scrollY || y + height > window.scrollY + window.innerHeight) dy *= -1;
+        if (y < 0 || y + height > window.innerHeight) dy *= -1;
 
         text.style.left = x + 'px';
         text.style.top = y + 'px';
@@ -134,11 +139,7 @@
       }
 
       animate();
-
-      setTimeout(() => text.remove(), 15000);
     }
-
-    setInterval(spawnFloatingText, 1200);
   </script>
 </body>
 </html>
