@@ -2,161 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BugToe - Department of Experimental Logic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wacky Quote Generator</title>
   <style>
-    html, body {
-      height: auto;
-      min-height: 100vh;
-      overflow-y: scroll;
-      font-family: 'Papyrus', fantasy;
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(90deg, #ffcc00, #ff6699);
       text-align: center;
-      position: relative;
-      background: linear-gradient(45deg, lime, magenta, cyan, orange);
-      animation: pulseBG 10s infinite linear;
-      color: #FFFF00; /* Bright yellow text */
+      margin: 50px;
     }
 
-    @keyframes pulseBG {
-      0%   { background: linear-gradient(45deg, lime, magenta, cyan, orange); }
-      5%  { background: linear-gradient(45deg, red, yellow, blue, green); }
-      10%  { background: linear-gradient(45deg, hotpink, turquoise, gold, violet); }
-      15%  { background: linear-gradient(45deg, orange, indigo, lime, skyblue); }
-      20% { background: linear-gradient(45deg, lime, magenta, cyan, orange); }
-      25%   { background: linear-gradient(45deg, lime, magenta, cyan, orange); }
-      30%  { background: linear-gradient(45deg, red, yellow, blue, green); }
-      35%  { background: linear-gradient(45deg, hotpink, turquoise, gold, violet); }
-      40%  { background: linear-gradient(45deg, orange, indigo, lime, skyblue); }
-      45% { background: linear-gradient(45deg, lime, magenta, cyan, orange); }
-      50%  { background: linear-gradient(45deg, hotpink, turquoise, gold, violet); }
-      55%   { background: linear-gradient(45deg, lime, magenta, cyan, orange); }
-      60%  { background: linear-gradient(45deg, red, yellow, blue, green); }
-      65%  { background: linear-gradient(45deg, hotpink, turquoise, gold, violet); }
-      70%  { background: linear-gradient(45deg, orange, indigo, lime, skyblue); }
-      75% { background: linear-gradient(45deg, lime, magenta, cyan, orange); }
-      80%   { background: linear-gradient(45deg, lime, magenta, cyan, orange); }
-      85%  { background: linear-gradient(45deg, red, yellow, blue, green); }
-      90%  { background: linear-gradient(45deg, hotpink, turquoise, gold, violet); }
-      95%  { background: linear-gradient(45deg, orange, indigo, lime, skyblue); }
-      100% { background: linear-gradient(45deg, lime, magenta, cyan, orange); }
-  
-    }
-
-    h1 {
-      font-size: 60px;
-      color: #ff00ff;
-      text-shadow: 3px 3px 10px #00ffff;
-      transform: rotate(-5deg);
-    }
-
-    .container {
-      margin: 20px auto;
+    #quoteBox {
+      background: #fff;
       padding: 20px;
-      border: 10px solid #00ff00;
-      background: repeating-radial-gradient(circle, blue, pink, yellow, red);
-      width: 80%;
-      box-shadow: 0px 0px 20px #ff4500;
-      position: relative;
-      z-index: 1;
+      border: 5px solid #000;
+      border-radius: 15px;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+      display: inline-block;
+      width: 50%;
     }
 
-    .bug {
-      font-size: 120px;
-      animation: spinny 2s infinite alternate;
+    #timer {
+      font-size: 18px;
+      margin-top: 15px;
+      font-weight: bold;
     }
-
-    @keyframes spinny {
-      from { transform: rotate(-20deg) scale(1); }
-      to   { transform: rotate(20deg) scale(1.2); }
-    }
-
-    .floating-layer {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    .floating-text {
-      position: absolute;
-      font-family: 'Comic Sans MS', cursive;
-      white-space: nowrap;
-    }
-
-    .scroll-buffer {
-      height: 100000px;
-      background: transparent;
-    }
-
-    /* Glitch variants */
-    .glitch-1:hover { animation: glitch1 0.3s infinite; filter: hue-rotate(90deg) contrast(200%) brightness(150%); transform: skewX(10deg) scale(1.1); opacity: 0.8; }
-    .glitch-2:hover { animation: glitch2 0.4s infinite; filter: blur(2px) brightness(180%); transform: rotate(5deg) scale(1.2); }
-    .glitch-3:hover { animation: glitch3 0.2s infinite; filter: grayscale(100%) contrast(300%); transform: skewY(15deg) scale(0.9); }
-    .glitch-4:hover { animation: glitch4 0.5s infinite; filter: invert(100%) saturate(200%); transform: rotate(-10deg) scale(1.05); }
-    .glitch-5:hover { animation: glitch5 0.3s infinite; filter: sepia(100%) hue-rotate(180deg); transform: scale(1.3) skewX(-5deg); }
-
-    @keyframes glitch1 { 0% { transform: translate(0, 0); opacity: 0.8; } 50% { transform: translate(-2px, 2px); opacity: 0.6; } 100% { transform: translate(2px, -2px); opacity: 1; } }
-    @keyframes glitch2 { 0% { transform: rotate(0deg); } 50% { transform: rotate(10deg); } 100% { transform: rotate(-10deg); } }
-    @keyframes glitch3 { 0% { transform: skewY(0deg); } 50% { transform: skewY(20deg); } 100% { transform: skewY(-20deg); } }
-    @keyframes glitch4 { 0% { transform: rotate(0deg); } 50% { transform: rotate(15deg); } 100% { transform: rotate(-15deg); } }
-    @keyframes glitch5 { 0% { transform: scale(1); } 50% { transform: scale(1.4); } 100% { transform: scale(0.8); } }
   </style>
 </head>
 <body>
-  <h1>BugToe: Department of Experimental Logic</h1>
-
-  <div class="container">
-    <p class="bug">🪲</p>
-    <p><strong>Founded:</strong> In an undisclosed location that may or may not exist.</p>
-    <p><strong>Official Statement:</strong> Reality is subjective. We exist only if you acknowledge us.</p>
-
-    <h2>📂 Ongoing Investigations</h2>
-    <ul>
-      <li>Discovering the hidden intelligence of shoelaces.</li>
-      <li>The hypothetical time travel properties loop holes</li>
-      <li>Investigating whether doors are secretly judging us.</li>
-      <li>Analyzing the behavioral patterns of unread emails.</li>
-      <li>Finding who asked</li>
-      <li>Getting 20% cooler</li>
-    </ul>
-
-    <h2>📊 Latest Research Findings</h2>
-    <ul>
-      <li>It is scientifically impossible to *prove* that plants aren’t sentient.</li>
-      <li>All known fish are capable of learning basic algebra, but they never tried to.</li>
-      <li>Every spider you see is actually watching you.</li>
-      <li>Hats increase popularity when worn indoors.</li>
-    </ul>
+  <h1>🌟 Absurd Quote Generator! 🌟</h1>
+  <div id="quoteBox">
+    <h2 id="quoteDisplay">Loading...</h2>
+    <p id="timer">Next update: Calculating...</p>
   </div>
 
-  <div class="scroll-buffer"></div>
-  <div class="floating-layer" id="floatingLayer"></div>
+  <audio id="soundEffect" src="sound.mp3" preload="auto"></audio>
 
   <script>
-    const phrases = [
-      "XDDD","XPPP",":/","/e dance","cant be that yummie lamp","XaewfDyfdsasd","hey hey you you",
-      "man im so cool","TE EPIC DUCK IS COMMING!!!!","The bugs are comming","webby site so kewl am i right",
-      "im a rockstar","XDDD","woahs","imagine if i get in fortnight lols","amngus","ha ha","heheheh",
-      "project website idk fun fun","NO WAY NO WAY","FUN",
-      "FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN FUN",
-      "HAW HAW","idk what im rlly doin","WE ALL LOVE STAMPY","R.I.P technoblade","nyan cat on top","idk",
-      "squbgam","so whatever","but hey thats just a idk",
-      "Lore matpat omg game theory game gehighidgdfihihdgf","prsnn","i am me -me","HUKDXZFSHDFJKVKYNTGUDB",
-      "maybe","Uhhhhhhh","unsafe lemon","What the when"
+    const quotes = [
+      "That clock was pointing at the time, but now it’s pointing at me... what do I do?",
+      "My shadow has been following me for years without paying rent.",
+      "I waved at my microwave. It beeped in response. Are we friends now?",
+      "If my fridge door closes, but I’m not there to see it, does the light really turn off?",
+      "Gravity keeps pulling me down, but I keep standing back up. Who’s really winning?",
+      "My reflection winked at me... now I’m not sure who’s in charge.",
+      "Are ceiling fans just spinning conspiracy theorists?",
+      "I spilled my thoughts on the floor... they rolled under the couch.",
+      "Somewhere, right now, a sock is escaping into the void.",
+      "The moon called me last night. I let it go to voicemail."
     ];
-    const colors = ['#ff00ff', '#00ffff', '#ffff00', '#ff4500', '#00ff00', '#ff69b4', '#8a2be2'];
-    const glitchClasses = ['glitch-1', 'glitch-2', 'glitch-3', 'glitch-4', 'glitch-5'];
-    const layer = document.getElementById('floatingLayer');
 
-    for (let i = 0; i < 100; i++) {
-      const text = document.createElement('div');
-      text.className = 'floating-text ' + glitchClasses[Math.floor(Math.random() * glitchClasses.length)];
-      text.textContent = phrases[Math.floor(Math.random() * phrases.length)];
-      text.style.color = colors[Math.floor(Math.random() * colors.length)];
-      text.style.fontSize = (Math.random() * 20 + 16) + 'px';
-      text.style.left = Math
+    function getQuote() {
+      const now = new Date();
+      const currentHour = now.getUTCHours();
+      const storedQuote = localStorage.getItem("dailyQuote");
+      const lastUpdatedHour = localStorage.getItem("lastUpdatedHour");
 
+      if (storedQuote && lastUpdatedHour && parseInt(lastUpdatedHour) === currentHour) {
+        document.getElementById("quoteDisplay").innerText = storedQuote;
+      } else {
+        const newQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        localStorage.setItem("dailyQuote", newQuote);
+        localStorage.setItem("lastUpdatedHour", currentHour);
+        document.getElementById("quoteDisplay").innerText = newQuote;
 
+        // Play sound when the quote updates
+        const soundEffect = document.getElementById("soundEffect");
+        soundEffect.play();
+      }
+    }
+
+    function updateTimer() {
+      const now = new Date();
+      const minutesLeft = 59 - now.getUTCMinutes();
+      const secondsLeft = 59 - now.getUTCSeconds();
+      document.getElementById("timer").innerText = `Next update in ${minutesLeft}m ${secondsLeft}s`;
+
+      // Check every second if we hit the top of the hour
+      if (minutesLeft === 0 && secondsLeft === 0) {
+        getQuote(); // Update quote at the start of a new hour
+      }
+    }
+
+    // Update the timer every second
+    setInterval(updateTimer, 1000);
+
+    // Load quote and start the timer when the page loads
+    window.onload = function () {
+      getQuote();
+      updateTimer();
+    };
+  </script>
+</body>
+</html>
