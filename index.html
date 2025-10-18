@@ -8,27 +8,30 @@
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
       background: linear-gradient(90deg, #ffcc00, #ff6699);
-      margin: 50px;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
     }
 
     #mainLayout {
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
       gap: 40px;
-      flex-wrap: wrap;
+      max-width: 1200px;
+      width: 100%;
     }
 
     #leftColumn {
       display: flex;
       flex-direction: column;
       gap: 30px;
-      flex: 1;
-      min-width: 300px;
+      flex: 2;
     }
 
     #rightColumn {
-      flex: 0 0 300px;
+      flex: 1;
+      display: flex;
+      align-items: stretch;
     }
 
     .infoBox, .quoteBox {
@@ -38,13 +41,6 @@
       border-radius: 15px;
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
       text-align: center;
-    }
-
-    .infoBox {
-      width: 100%;
-    }
-
-    .quoteBox {
       width: 100%;
     }
 
@@ -54,13 +50,20 @@
       font-weight: bold;
     }
 
+    #linkLaqute {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     #linkLaqute ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     #linkLaqute li {
-      margin: 10px 0;
+      margin: 12px 0;
     }
 
     #linkLaqute a {
@@ -73,11 +76,22 @@
     #linkLaqute a:hover {
       color: #ff6699;
     }
+
+    @media (max-width: 900px) {
+      #mainLayout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #rightColumn {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <div id="mainLayout">
-    <!-- Left Column: Title + Quote -->
+    <!-- Left Column -->
     <div id="leftColumn">
       <div class="infoBox">
         <h1>🌐 Bugtoe Systems</h1>
@@ -90,7 +104,7 @@
       </div>
     </div>
 
-    <!-- Right Column: Link Laqute -->
+    <!-- Right Column -->
     <div id="rightColumn">
       <div id="linkLaqute" class="infoBox">
         <h2>🔗 Link Laqute</h2>
