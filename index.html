@@ -8,8 +8,27 @@
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
       background: linear-gradient(90deg, #ffcc00, #ff6699);
-      text-align: center;
       margin: 50px;
+    }
+
+    #mainLayout {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    #leftColumn {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      flex: 1;
+      min-width: 300px;
+    }
+
+    #rightColumn {
+      flex: 0 0 300px;
     }
 
     .infoBox, .quoteBox {
@@ -18,8 +37,15 @@
       border: 5px solid #000;
       border-radius: 15px;
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-      width: 60%;
-      margin: 30px auto;
+      text-align: center;
+    }
+
+    .infoBox {
+      width: 100%;
+    }
+
+    .quoteBox {
+      width: 100%;
     }
 
     #timer {
@@ -50,27 +76,32 @@
   </style>
 </head>
 <body>
-  <!-- 1. Title + Description -->
-  <div class="infoBox">
-    <h1>🌐 Bugtoe Systems</h1>
-    <p>A surreal quote engine and protocol node. Updated hourly. Powered by static anomalies and localStorage.</p>
-  </div>
+  <div id="mainLayout">
+    <!-- Left Column: Title + Quote -->
+    <div id="leftColumn">
+      <div class="infoBox">
+        <h1>🌐 Bugtoe Systems</h1>
+        <p>A surreal quote engine and protocol node. Updated hourly. Powered by static anomalies and localStorage.</p>
+      </div>
 
-  <!-- 2. Quote Generator -->
-  <div id="quoteBox" class="quoteBox">
-    <h2 id="quoteDisplay">Loading...</h2>
-    <p id="timer">Next update: Calculating...</p>
-  </div>
+      <div id="quoteBox" class="quoteBox">
+        <h2 id="quoteDisplay">Loading...</h2>
+        <p id="timer">Next update: Calculating...</p>
+      </div>
+    </div>
 
-  <!-- 3. Link Laqute -->
-  <div id="linkLaqute" class="infoBox">
-    <h2>🔗 Link Laqute</h2>
-    <ul>
-      <li><a href="#">🌀 Protocol Manual</a></li>
-      <li><a href="#">🎧 Audio Logs</a></li>
-      <li><a href="#">📦 Sockfall Archives</a></li>
-      <li><a href="#">🪞 Mirror Portal</a></li>
-    </ul>
+    <!-- Right Column: Link Laqute -->
+    <div id="rightColumn">
+      <div id="linkLaqute" class="infoBox">
+        <h2>🔗 Link Laqute</h2>
+        <ul>
+          <li><a href="#">🌀 Protocol Manual</a></li>
+          <li><a href="#">🎧 Audio Logs</a></li>
+          <li><a href="#">📦 Sockfall Archives</a></li>
+          <li><a href="#">🪞 Mirror Portal</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <audio id="soundEffect" src="sound.mp3" preload="auto"></audio>
