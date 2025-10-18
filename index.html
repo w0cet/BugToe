@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wacky Quote Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bugtoe Systems</title>
   <style>
     body {
       font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -12,14 +12,14 @@
       margin: 50px;
     }
 
-    #quoteBox {
+    .infoBox, .quoteBox {
       background: #fff;
-      padding: 20px;
+      padding: 25px;
       border: 5px solid #000;
       border-radius: 15px;
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-      display: inline-block;
-      width: 50%;
+      width: 60%;
+      margin: 30px auto;
     }
 
     #timer {
@@ -27,13 +27,50 @@
       margin-top: 15px;
       font-weight: bold;
     }
+
+    #linkLaqute ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #linkLaqute li {
+      margin: 10px 0;
+    }
+
+    #linkLaqute a {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    #linkLaqute a:hover {
+      color: #ff6699;
+    }
   </style>
 </head>
 <body>
-  <h1>🌟 Absurd Quote Generator! 🌟</h1>
-  <div id="quoteBox">
+  <!-- 1. Title + Description -->
+  <div class="infoBox">
+    <h1>🌐 Bugtoe Systems</h1>
+    <p>A surreal quote engine and protocol node. Updated hourly. Powered by static anomalies and localStorage.</p>
+  </div>
+
+  <!-- 2. Quote Generator -->
+  <div id="quoteBox" class="quoteBox">
     <h2 id="quoteDisplay">Loading...</h2>
     <p id="timer">Next update: Calculating...</p>
+  </div>
+
+  <!-- 3. Link Laqute -->
+  <div id="linkLaqute" class="infoBox">
+    <h2>🔗 Link Laqute</h2>
+    <ul>
+      <li><a href="#">🌀 Protocol Manual</a></li>
+      <li><a href="#">🎧 Audio Logs</a></li>
+      <li><a href="#">📦 Sockfall Archives</a></li>
+      <li><a href="#">🪞 Mirror Portal</a></li>
+    </ul>
   </div>
 
   <audio id="soundEffect" src="sound.mp3" preload="auto"></audio>
@@ -66,7 +103,6 @@
         localStorage.setItem("lastUpdatedHour", currentHour);
         document.getElementById("quoteDisplay").innerText = newQuote;
 
-        // Play sound when the quote updates
         const soundEffect = document.getElementById("soundEffect");
         soundEffect.play();
       }
@@ -78,16 +114,13 @@
       const secondsLeft = 59 - now.getUTCSeconds();
       document.getElementById("timer").innerText = `Next update in ${minutesLeft}m ${secondsLeft}s`;
 
-      // Check every second if we hit the top of the hour
       if (minutesLeft === 0 && secondsLeft === 0) {
-        getQuote(); // Update quote at the start of a new hour
+        getQuote();
       }
     }
 
-    // Update the timer every second
     setInterval(updateTimer, 1000);
 
-    // Load quote and start the timer when the page loads
     window.onload = function () {
       getQuote();
       updateTimer();
