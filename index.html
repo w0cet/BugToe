@@ -16,15 +16,17 @@
 
     #mainLayout {
       display: flex;
-      gap: 40px;
+      justify-content: space-between;
+      align-items: flex-start;
       max-width: 1200px;
       width: 100%;
+      gap: 100px; /* Increased spacing between columns */
     }
 
     #leftColumn {
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 40px; /* More space between title and quote box */
       flex: 2;
     }
 
@@ -36,7 +38,7 @@
 
     .infoBox, .quoteBox {
       background: #fff;
-      padding: 25px;
+      padding: 30px;
       border: 5px solid #000;
       border-radius: 15px;
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
@@ -63,7 +65,7 @@
     }
 
     #linkLaqute li {
-      margin: 12px 0;
+      margin: 15px 0;
     }
 
     #linkLaqute a {
@@ -85,6 +87,7 @@
 
       #rightColumn {
         width: 100%;
+        margin-top: 40px;
       }
     }
   </style>
