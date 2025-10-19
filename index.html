@@ -94,7 +94,6 @@
 </head>
 <body>
   <div id="mainLayout">
-    <!-- Left Column -->
     <div id="leftColumn">
       <div class="infoBox">
         <h1>Bugtoe.com!</h1>
@@ -107,7 +106,6 @@
       </div>
     </div>
 
-    <!-- Right Column -->
     <div id="rightColumn">
       <div id="linkLaqute" class="infoBox">
         <h2>Link Laqute</h2>
@@ -121,7 +119,6 @@
     </div>
   </div>
 
-  <!-- Sound Effect -->
   <audio id="soundEffect" src="sound.mp3" preload="auto"></audio>
 
   <script>
@@ -140,14 +137,43 @@
 
     let nextUpdateTime;
 
-    function getQuote() {
-      const newQuote = quotes[Math.floor(Math.random() * quotes.length)];
-      document.getElementById("quoteDisplay").innerText = newQuote;
+    function getNextInterval() {
+      const now = new Date();
+      const minutes = now.getMinutes();
+      const nextMinutes = Math.ceil(minutes / 5) * 5;
+      const next = new Date(now);
+      next.setMinutes(nextMinutes);
+      next.setSeconds(0);
+      next.setMilliseconds(0);
+      return next;
+    }
 
-      nextUpdateTime = new Date(Date.now() + 5 * 60 * 1000); // 5 minutes from now
+    function getQuoteKey(time) {
+      const hour = time.getHours().toString().padStart(2, '0');
+      const minute = time.getMinutes().toString().padStart(2, '0');
+      return `quote_${hour}:${minute}`;
+    }
 
-      const soundEffect = document.getElementById("soundEffect");
-      if (soundEffect) soundEffect.play();
+    function loadQuote() {
+      const now = new Date();
+      const currentInterval = new Date(now);
+      currentInterval.setMinutes(Math.floor(now.getMinutes() / 5) * 5);
+      currentInterval.setSeconds(0);
+      currentInterval.setMilliseconds(0);
+
+      const key = getQuoteKey(currentInterval);
+      let quote = localStorage.getItem(key);
+
+      if (!quote) {
+        quote = quotes[Math.floor(Math.random() * quotes.length)];
+        localStorage.setItem(key, quote);
+
+        const soundEffect = document.getElementById("soundEffect");
+        if (soundEffect) soundEffect.play();
+      }
+
+      document.getElementById("quoteDisplay").innerText = quote;
+      nextUpdateTime = getNextInterval();
     }
 
     function updateTimer() {
@@ -155,7 +181,7 @@
       const timeLeft = nextUpdateTime - now;
 
       if (timeLeft <= 0) {
-        getQuote();
+        loadQuote();
         return;
       }
 
@@ -165,7 +191,7 @@
     }
 
     window.onload = function () {
-      getQuote();
+      loadQuote();
       updateTimer();
       setInterval(updateTimer, 1000);
     };
