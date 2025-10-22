@@ -191,7 +191,6 @@
       }
 
       document.getElementById("quoteDisplay").innerText = quote;
-      nextUpdateTime = getNextInterval();
     }
 
     function updateTimer() {
@@ -199,16 +198,17 @@
       const timeLeft = nextUpdateTime - now;
 
       if (timeLeft <= 0) {
+        nextUpdateTime = getNextInterval();
         loadQuote(true);
-        return;
       }
 
-      const minutesLeft = Math.floor(timeLeft / 60000);
-      const secondsLeft = Math.floor((timeLeft % 60000) / 1000);
+      const minutesLeft = Math.max(0, Math.floor(timeLeft / 60000));
+      const secondsLeft = Math.max(0, Math.floor((timeLeft % 60000) / 1000));
       document.getElementById("timer").innerText = `Next update in ${minutesLeft}m ${secondsLeft}s`;
     }
 
     window.onload = function () {
+      nextUpdateTime = getNextInterval();
       loadQuote();
       updateTimer();
       setInterval(updateTimer, 1000);
