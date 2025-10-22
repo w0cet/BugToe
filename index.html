@@ -132,6 +132,7 @@
           <li><a href="#">- </a></li>
           <li><a href="#">- </a></li>
           <li><a href="#">- </a></li>
+          <li><a href="#">- </a></li>
         </ul>
       </div>
     </div>
@@ -157,9 +158,8 @@
 
     function getNextInterval() {
       const now = new Date();
-      const minutes = now.getMinutes();
-      const nextMinutes = Math.ceil(minutes / 5) * 5;
       const next = new Date(now);
+      const nextMinutes = Math.ceil(now.getMinutes() / 5) * 5;
       next.setMinutes(nextMinutes);
       next.setSeconds(0);
       next.setMilliseconds(0);
@@ -172,7 +172,7 @@
       return `quote_${hour}:${minute}`;
     }
 
-    function loadQuote() {
+    function loadQuote(force = false) {
       const now = new Date();
       const currentInterval = new Date(now);
       currentInterval.setMinutes(Math.floor(now.getMinutes() / 5) * 5);
@@ -182,7 +182,7 @@
       const key = getQuoteKey(currentInterval);
       let quote = localStorage.getItem(key);
 
-      if (!quote) {
+      if (!quote || force) {
         quote = quotes[Math.floor(Math.random() * quotes.length)];
         localStorage.setItem(key, quote);
 
@@ -199,7 +199,7 @@
       const timeLeft = nextUpdateTime - now;
 
       if (timeLeft <= 0) {
-        loadQuote();
+        loadQuote(true);
         return;
       }
 
@@ -216,4 +216,3 @@
   </script>
 </body>
 </html>
-
