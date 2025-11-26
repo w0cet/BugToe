@@ -1,111 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bugtoe.com</title>
-  <style>
-    body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: #000; /* solid black background */
-      margin: 0;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: #fff; /* default text color white */
-    }
+<h1 id="bugtoeTitle">Bugtoe 🪲</h1>
 
-    #bugtoeTitle {
-      font-family: Papyrus, fantasy;
-      font-size: 80px;
-      text-align: center;
-      margin-bottom: 40px;
-      color: #fff; /* force title text to pure white */
-    }
+<style>
+  body {
+    background: #000; /* solid black background */
+    color: #fff;      /* default text color white */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    #mainLayout {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      max-width: 1200px;
-      width: 100%;
-      gap: 100px;
-    }
-
-    #leftColumn {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      flex: 2;
-    }
-
-    #rightColumn {
-      flex: 1;
-      display: flex;
-      align-items: stretch;
-    }
-
-    .infoBox, .quoteBox {
-      background: #111; /* dark box background */
-      color: #fff; /* white text inside boxes */
-      padding: 30px;
-      border: 5px solid #fff; /* white border */
-      border-radius: 15px;
-      box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.3);
-      text-align: center;
-      width: 100%;
-    }
-
-    #timer {
-      font-size: 18px;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    #linkLaqute {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    #linkLaqute ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    #linkLaqute li {
-      margin: 15px 0;
-    }
-
-    #linkLaqute a {
-      text-decoration: none;
-      color: #fff; /* links white */
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    #linkLaqute a:hover {
-      color: #ff6699; /* hover accent */
-    }
-
-    @media (max-width: 900px) {
-      #mainLayout {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #rightColumn {
-        width: 100%;
-        margin-top: 40px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <h1 id="bugtoeTitle">Bugtoe 🪲</h1>
-
-  <!-- rest of your layout unchanged -->
-</body>
-</html>
+  #bugtoeTitle {
+    font-family: Papyrus, fantasy;
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff; /* text white */
+    filter: brightness(0) invert(1); /* force emoji to appear white */
+  }
+</style>
