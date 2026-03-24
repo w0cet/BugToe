@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KingsKey – Page 5</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #444;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .page-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .side-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .side-banner img {
+    height: 450px;
+    opacity: 0.95;
+  }
+
+  .comic-wrapper {
+    background: #fff;
+    width: 800px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    text-align: center;
+  }
+
+  .site-title {
+    font-family: "Papyrus", fantasy;
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .page-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .comic-image {
+    width: 100%;
+    max-width: 450px;
+    margin: 20px 0;
+    border: 2px solid #000;
+  }
+
+  .description {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  /* CHAT LOG BOX */
+  .chatlog-toggle {
+    background: #ccc;
+    padding: 10px;
+    width: 200px;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+
+  .chatlog-container {
+    display: none;
+    background: #eee;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: left;
+  }
+
+  .chat-line {
+    margin: 5px 0;
+    padding: 6px;
+    border-radius: 4px;
+  }
+
+  /* EASY TO EDIT COLOURS */
+  .blue { background: #cce0ff; }
+  .red { background: #ffcccc; }
+  .green { background: #ccffcc; }
+
+  .next {
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .next:hover {
+    opacity: 0.6;
+  }
+</style>
+
+<script>
+  function toggleChat() {
+    const box = document.getElementById("chatlog");
+    box.style.display = (box.style.display === "block") ? "none" : "block";
+  }
+</script>
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+  <div class="side-banner">
+    <img src="key.png" alt="Key Banner">
+  </div>
+
+  <div class="comic-wrapper">
+
+    <div class="site-title">bugtoe.com</div>
+
+    <div class="page-title">Whos there?</div>
+
+    <img src="Page5.png" alt="Comic Page" class="comic-image">
+
+    <div class="description">
+      OH HELL YEA ITS... uhhhhh <24th March 2026>
+    </div>
+
+    <!-- CHAT LOG TOGGLE -->
+    <div class="chatlog-toggle" onclick="toggleChat()">ChatLog</div>
+
+    <!-- CHAT LOG CONTENT -->
+    <div id="chatlog" class="chatlog-container">
+
+      <!-- EASY TO EDIT LINES -->
+      <div class="chat-line blue">Bennett : OH DUDE WHATS UPPP.. what's your name again?</div>
+      <div class="chat-line green">Geceog : Geceog.. 8}</div>
+      <div class="chat-line green">Bennett: YEA HI MY DUDE</div>
+
+    </div>
+
+    <a class="next" href="https://www.bugtoe.com/4">==></a>
+
+  </div>
+
+  <div class="side-banner">
+    <img src="key.png" alt="Key Banner">
+  </div>
+
+</div>
+
+</body>
+</html>
