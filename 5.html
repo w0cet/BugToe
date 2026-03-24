@@ -65,36 +65,35 @@
     margin-bottom: 30px;
   }
 
-  /* CHAT LOG BOX */
+  /* --- HOMESTUCK STYLE PESTERLOG --- */
+
   .chatlog-toggle {
-    background: #ccc;
-    padding: 10px;
-    width: 200px;
+    background: #ddd;
+    padding: 8px;
+    width: 260px;
     margin: 0 auto;
     cursor: pointer;
-    border-radius: 6px;
-    font-weight: bold;
+    border: 3px solid #000;
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
   }
 
   .chatlog-container {
     display: none;
-    background: #eee;
+    background: #fff;
     margin-top: 10px;
     padding: 15px;
-    border-radius: 6px;
+    border: 3px solid #000;
+    font-family: "Courier New", monospace;
     text-align: left;
+    white-space: pre-line;
   }
 
-  .chat-line {
-    margin: 5px 0;
-    padding: 6px;
-    border-radius: 4px;
-  }
-
-  /* EASY TO EDIT COLOURS */
-  .blue { background: #cce0ff; }
-  .red { background: #ffcccc; }
-  .green { background: #ccffcc; }
+  /* Homestuck-style colours */
+  .blue { color: #0715cd; }
+  .green { color: #4ac925; }
+  .red { color: #e00707; }
+  .purple { color: #a100ff; }
 
   .next {
     font-size: 32px;
@@ -134,19 +133,19 @@
     <img src="Page5.png" alt="Comic Page" class="comic-image">
 
     <div class="description">
-      OH HELL YEA ITS... uhhhhh <24th March 2026>
+      OH HELL YEA ITS... uhhhhh &lt;24th March 2026&gt;
     </div>
 
-    <!-- CHAT LOG TOGGLE -->
-    <div class="chatlog-toggle" onclick="toggleChat()">ChatLog</div>
+    <!-- PESTERLOG BUTTON -->
+    <div class="chatlog-toggle" onclick="toggleChat()">PESTERLOG</div>
 
-    <!-- CHAT LOG CONTENT -->
+    <!-- PESTERLOG CONTENT -->
     <div id="chatlog" class="chatlog-container">
 
-      <!-- EASY TO EDIT LINES -->
-      <div class="chat-line blue">Bennett : OH DUDE WHATS UPPP.. what's your name again?</div>
-      <div class="chat-line green">Geceog : Geceog.. 8}</div>
-      <div class="chat-line green">Bennett: YEA HI MY DUDE</div>
+<span class="blue">BENNETT: OH DUDE WHATS UPPP.. what's your name again?</span>
+<span class="green">GECEOG: Geceog.. 8}</span>
+<span class="green">GECEOG: Nice to see you again.</span>
+<span class="blue">BENNETT: YEA HI MY DUDE</span>
 
     </div>
 
