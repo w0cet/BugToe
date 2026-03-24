@@ -1,25 +1,83 @@
-<h1 id="bugtoeTitle">Bugtoe</h1>
-
-<img src="key.png" alt="Key" style="margin-top:20px; width:200px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bugtoe – Page 1</title>
 
 <style>
   body {
-    background: #000; /* solid black background */
-    color: #fff;      /* default text color white */
-    font-family: 'Comic Sans MS', cursive, sans-serif;
     margin: 0;
-    padding: 40px;
+    padding: 0;
+    background: #444; /* grey outer background */
+    font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
   }
 
-  #bugtoeTitle {
-    font-family: Papyrus, fantasy;
-    font-size: 80px;
+  .comic-wrapper {
+    background: #fff; /* white comic panel */
+    width: 800px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
     text-align: center;
-    margin-bottom: 40px;
-    color: #fff; /* text white */
-    filter: brightness(0) invert(1); /* force emoji to appear white */
+  }
+
+  .site-title {
+    font-family: "Papyrus", fantasy;
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .page-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .comic-image {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px 0;
+    border: 2px solid #000;
+  }
+
+  .description {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .next {
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .next:hover {
+    opacity: 0.6;
   }
 </style>
+</head>
+
+<body>
+
+<div class="comic-wrapper">
+
+  <div class="site-title">bugtoe.com</div>
+
+  <div class="page-title">Page 1 – The Beginning</div>
+
+  <img src="Page1.png" alt="Comic Page" class="comic-image">
+
+  <div class="description">
+    This is where you describe what’s happening on this page of the comic.
+  </div>
+
+  <a class="next" href="page2.html">==></a>
+
+</div>
+
+</body>
+</html>
