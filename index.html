@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Bugtoe – Page 1</title>
+<title>KingsKey – Page 1</title>
 
 <style>
   body {
@@ -13,6 +13,23 @@
     display: flex;
     justify-content: center;
     padding: 40px 0;
+  }
+
+  .page-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .side-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .side-banner img {
+    width: 120px;
+    opacity: 0.9;
   }
 
   .comic-wrapper {
@@ -37,7 +54,7 @@
 
   .comic-image {
     width: 100%;
-    max-width: 700px;
+    max-width: 550px; /* smaller but still big */
     margin: 20px 0;
     border: 2px solid #000;
   }
@@ -63,19 +80,34 @@
 
 <body>
 
-<div class="comic-wrapper">
+<div class="page-container">
 
-  <div class="site-title">bugtoe.com</div>
-
-  <div class="page-title">Page 1 – The Beginning</div>
-
-  <img src="Page1.png" alt="Comic Page" class="comic-image">
-
-  <div class="description">
-    This is where you describe what’s happening on this page of the comic.
+  <!-- LEFT SIDE BANNER -->
+  <div class="side-banner">
+    <img src="key.png" alt="Key Banner">
   </div>
 
-  <a class="next" href="page2.html">==></a>
+  <!-- MAIN COMIC PANEL -->
+  <div class="comic-wrapper">
+
+    <div class="site-title">bugtoe.com</div>
+
+    <div class="page-title">KingsKey</div>
+
+    <img src="Page1.png" alt="Comic Page" class="comic-image">
+
+    <div class="description">
+      You are STUPID BOY, You think today is a day where you shouldnt wear a clown nose? even if you hate them, TODAY is NOT acceptable
+    </div>
+
+    <a class="next" href="page2.html">==></a>
+
+  </div>
+
+  <!-- RIGHT SIDE BANNER -->
+  <div class="side-banner">
+    <img src="key.png" alt="Key Banner">
+  </div>
 
 </div>
 
