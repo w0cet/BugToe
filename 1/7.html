@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KingsKey – Page 7</title>
+
+<style>
+  /* MOBILE EXPANSION FOR COMIC WRAPPER */
+@media (max-width: 900px) {
+  body {
+    padding: 20px 0;
+  }
+
+  .page-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .side-banner img {
+    height: 200px;
+  }
+
+  .comic-wrapper {
+    width: 90vw;          /* fills most of the phone width */
+    max-width: 90vw;
+    padding: 20px;
+  }
+}
+  body {
+    margin: 0;
+    padding: 0;
+    background: #444;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .page-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .side-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .side-banner img {
+    height: 450px;
+    opacity: 0.95;
+  }
+
+  .comic-wrapper {
+    background: #fff;
+    width: 800px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    text-align: center;
+  }
+
+  .site-title {
+    font-family: "Papyrus", fantasy;
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .page-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .comic-image {
+    width: 100%;
+    max-width: 450px;
+    margin: 20px 0;
+    border: 2px solid #000;
+  }
+
+  .description {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  /* --- HOMESTUCK STYLE PESTERLOG --- */
+
+  .chatlog-toggle {
+    background: #ddd;
+    padding: 8px;
+    width: 260px;
+    margin: 0 auto;
+    cursor: pointer;
+    border: 3px solid #000;
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+  }
+
+  .chatlog-container {
+    display: none;
+    background: #fff;
+    margin-top: 10px;
+    padding: 15px;
+    border: 3px solid #000;
+    font-family: "Courier New", monospace;
+    text-align: left;
+    white-space: pre-line;
+  }
+
+  /* Homestuck-style colours */
+  .blue { color: #0715cd; }
+  .green { color: #4ac925; }
+  .red { color: #e00707; }
+  .purple { color: #a100ff; }
+  .Yellow { color: #fff200; }
+  .Black { color: #000000; }
+
+  .next {
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .next:hover {
+    opacity: 0.6;
+  }
+</style>
+
+<script>
+  function toggleChat() {
+    const box = document.getElementById("chatlog");
+    box.style.display = (box.style.display === "block") ? "none" : "block";
+  }
+</script>
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+  <div class="side-banner">
+    <img src="key.png" alt="Key Banner">
+  </div>
+
+  <div class="comic-wrapper">
+
+    <div class="site-title">bugtoe.com</div>
+
+    <div class="page-title">Adventure Time</div>
+
+    <img src="Page7.png" alt="Comic Page" class="comic-image">
+
+    <div class="description">
+      Walking simulator, am i right lads or am i right? &lt;24th March 2026&gt;
+    </div>
+
+    <!-- CHATLOG BUTTON -->
+    <div class="chatlog-toggle" onclick="toggleChat()">Chatlog</div>
+
+    <!-- CHATLOG CONTENT -->
+    <div id="chatlog" class="chatlog-container">
+
+<span class="green">GECEOG: So.. 8}</span>
+<span class="green">GECEOG: Why didnt you have my name writen down again?.</span>
+<span class="blue">BENNETT: I LOST IT SORRY</span>
+<span class="blue">BENNETT: I DONT EVEN RENEMBER WRITING IT</span>
+<span class="green">GECEOG: Makes sence.</span>
+<span class="green">GECEOG: I mean honestly, You need to clean Your room, by a long damn shot </span>
+<span class="green">GECEOG: so</span>
+<span class="blue">BENNETT: FINE, ILL CLEAN IT LATER</span>
+<span class="green">GECEOG: Are You going to write it down? Or...</span>
+<span class="blue">BENNETT: NAH ID RENEMBER</span>
+<span class="green">GECEOG: 8{ I dont belive You but sure Dude</span>
+<span class="blue">BENNETT: RUDE</span>
+<span class="blue">BENNETT: WHAT DID I DO THAT HURT YOU SO MUCH</span>
+<span class="green">GECEOG:</span>
+<span class="green">GECEOG: Well for starters do you know my name</span>
+<span class="blue">BENNETT: ...RUDE >:C</span>
+<span class="green">GECEOG: Then write my name down dawg.</span>
+<span class="green">GECEOG: Plus why did you not wear your clown nose?</span>
+<span class="blue">BENNETT: WHERE ARE WE GOING?</span>
+<span class="green">GECEOG: Egg's Hou- HEY DONT IGNORE MY QUESTION!!!</span>
+<span class="blue">BENNETT: HUH??</span>
+<span class="green">GECEOG: Your nose?</span>
+<span class="green">GECEOG: Why are you not wearing it?</span>
+<span class="blue">BENNETT: OH ITS UNCOMFORTABLE, SORRY I FORGOT</span>
+<span class="green">GECEOG: You would</span>
+<span class="green">GECEOG: anyway we are here</span>
+    </div>
+
+    <a class="next" href="https://www.bugtoe.com/1/7">Arive ==></a>
+
+  </div>
+
+  <div class="side-banner">
+    <img src="key.png" alt="Key Banner">
+  </div>
+
+</div>
+
+</body>
+</html>
