@@ -15,6 +15,161 @@
     padding: 40px 0;
   }
 
+  /* BACK BUTTON */
+  .back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    z-index: 9999;
+    opacity: 0.8;
+    transition: 0.2s;
+  }
+
+  .back-button:hover {
+    opacity: 1;
+  }
+
+  .page-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .side-banner img {
+    height: 450px;
+    opacity: 0.95;
+  }
+
+  .menu-wrapper {
+    background: #fff;
+    width: 800px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    text-align: center;
+  }
+
+  .site-title {
+    font-family: "Papyrus", fantasy;
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-size: 32px;
+    margin: 20px 0 10px;
+    font-weight: bold;
+  }
+
+  .info-line {
+    font-size: 22px;
+    margin: 8px 0;
+  }
+
+  .menu-links a,
+  .menu-links div {
+    display: block;
+    font-size: 22px;
+    margin: 10px 0;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .menu-links a:hover {
+    opacity: 0.6;
+  }
+
+  /* MOBILE VERSION */
+  @media (max-width: 900px) {
+    body {
+      padding: 20px 0;
+    }
+
+    .page-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .side-banner img {
+      height: 200px;
+    }
+
+    .menu-wrapper {
+      width: 90vw;
+      max-width: 90vw;
+      padding: 20px;
+    }
+
+    .back-button {
+      font-size: 32px;
+      top: 10px;
+      left: 10px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- BACK BUTTON -->
+<a href="index.html" class="back-button">←</a>
+
+<div class="page-container">
+
+  <div class="side-banner">
+    <img src="key.png" alt="Key Banner">
+  </div>
+
+  <div class="menu-wrapper">
+
+    <div class="site-title">bugtoe.com</div>
+
+    <div class="section-title">About Me</div>
+
+    <div class="info-line">Name: Danny</div>
+    <div class="info-line">Nationality: United Kingdom</div>
+    <div class="info-line">Favorite Color: Pink</div>
+    <div class="info-line">Favorite Food: Lasagna</div>
+    <div class="info-line">Age: 15</div>
+
+    <div class="section-title">Links / Socials</div>
+
+    <div class="menu-links">
+      <div>Roblox: @W0CET</div>
+      <div>Discord: W0CET</div>
+      <a href="https://www.youtube.com/@NuhCracker">YouTube Account</a>
+    </div>
+
+  </div>
+
+  <div class="side-banner">
+    <img src="key.png" alt="Key Banner">
+  </div>
+
+</div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bugtoe – About</title>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #444;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
   .page-container {
     display: flex;
     gap: 20px;
