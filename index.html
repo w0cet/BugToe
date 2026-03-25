@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>KingsKey – Page 1</title>
+<title>Bugtoe – Home</title>
 
 <style>
   body {
@@ -21,18 +21,12 @@
     align-items: center;
   }
 
-  .side-banner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
   .side-banner img {
     height: 450px;
     opacity: 0.95;
   }
 
-  .comic-wrapper {
+  .menu-wrapper {
     background: #fff;
     width: 800px;
     padding: 40px;
@@ -46,34 +40,45 @@
     margin-bottom: 10px;
   }
 
-  .page-title {
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-
-  .comic-image {
-    width: 100%;
-    max-width: 450px;
-    margin: 20px 0;
-    border: 2px solid #000;
-  }
-
-  .description {
-    font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-  }
-
-  .next {
+  .menu-title {
     font-size: 32px;
+    margin-bottom: 30px;
     font-weight: bold;
+  }
+
+  .menu-links a {
+    display: block;
+    font-size: 26px;
+    margin: 15px 0;
     text-decoration: none;
     color: #000;
+    font-weight: bold;
   }
 
-  .next:hover {
+  .menu-links a:hover {
     opacity: 0.6;
+  }
+
+  /* MOBILE VERSION */
+  @media (max-width: 900px) {
+    body {
+      padding: 20px 0;
+    }
+
+    .page-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .side-banner img {
+      height: 200px;
+    }
+
+    .menu-wrapper {
+      width: 90vw;
+      max-width: 90vw;
+      padding: 20px;
+    }
   }
 </style>
 </head>
@@ -86,19 +91,16 @@
     <img src="key.png" alt="Key Banner">
   </div>
 
-  <div class="comic-wrapper">
+  <div class="menu-wrapper">
 
     <div class="site-title">bugtoe.com</div>
+    <div class="menu-title">Welcome</div>
 
-    <div class="page-title">KingsKey</div>
-
-    <img src="Page1.png" alt="Comic Page" class="comic-image">
-
-    <div class="description">
-       You are a stupid boy... You sit in your room, and think today is a day where you shouldn't wear a clown nose... even if you hate them, today is not acceptable. Well, maybe it's good for you since you're a boring clown who lacks ANY importance, or memory for that matter. Speaking of you... who are you. <24th March 2026> 
+    <div class="menu-links">
+      <a href="about.html">About Me</a>
+      <a href="kingskey.html">KingsKey (Webcomic)</a>
+      <a href="extras.html">Extras</a>
     </div>
-
-    <a class="next" href="https://www.bugtoe.com/2">Find paper ==></a>
 
   </div>
 
