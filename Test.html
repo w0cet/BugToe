@@ -29,49 +29,56 @@
   z-index: -1;
 }
 
-/* 🟢🟡 Green + yellow sideways wiggly beams */
+/* 🟢🟡 Solid green/yellow sideways worms */
 .beam {
   position: absolute;
-  left: 0;
-  height: 12vh;
+  height: 10vh;
   width: 100%;
   background: linear-gradient(
     to right,
-    rgba(0, 255, 0, 0.35),
-    rgba(255, 255, 0, 0.35),
-    rgba(0, 255, 0, 0.35)
+    rgba(0, 255, 0, 0.7),
+    rgba(255, 255, 0, 0.7),
+    rgba(0, 255, 0, 0.7)
   );
-  filter: blur(35px);
-  opacity: 0.7;
 
-  animation: wiggleSideways 7s ease-in-out infinite alternate;
+  /* Less foggy, more solid */
+  filter: blur(10px);
+  opacity: 0.9;
+
+  /* Random-ish starting positions */
+  left: calc(10% + (80% * var(--rand-x)));
+  top: calc(10% + (80% * var(--rand-y)));
+
+  animation: wiggleSideways 5s ease-in-out infinite alternate;
 }
 
-/* 🌊 Sideways wiggly motion */
+/* 🌊 Stronger sideways wiggle */
 @keyframes wiggleSideways {
-  0%   { transform: translateY(0) skewY(0deg); }
-  20%  { transform: translateY(-25px) skewY(4deg); }
-  45%  { transform: translateY(15px) skewY(-3deg); }
-  70%  { transform: translateY(-20px) skewY(2deg); }
-  100% { transform: translateY(0) skewY(0deg); }
+  0%   { transform: translateX(0) translateY(0) skewY(0deg); }
+  20%  { transform: translateX(40px) translateY(-20px) skewY(6deg); }
+  45%  { transform: translateX(-30px) translateY(15px) skewY(-5deg); }
+  70%  { transform: translateX(50px) translateY(-10px) skewY(4deg); }
+  100% { transform: translateX(0) translateY(0) skewY(0deg); }
 }
 
-/* Position each beam at different heights + speeds */
+/* Each worm gets its own random seed + speed */
 .beam:nth-child(1) {
-  top: 20%;
+  --rand-x: 0.1;
+  --rand-y: 0.2;
   animation-duration: 6s;
 }
 
 .beam:nth-child(2) {
-  top: 50%;
-  animation-duration: 8s;
+  --rand-x: 0.6;
+  --rand-y: 0.5;
+  animation-duration: 7.5s;
 }
 
 .beam:nth-child(3) {
-  top: 75%;
-  animation-duration: 7s;
+  --rand-x: 0.3;
+  --rand-y: 0.8;
+  animation-duration: 5.5s;
 }
-
   /* Your existing logo + text styles stay the same */
   .logo-wrapper {
     position: relative;
