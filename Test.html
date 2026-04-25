@@ -4,53 +4,65 @@
   <meta charset="UTF-8">
   <title>Bugtoe Logo Only</title>
 
-  <style>
-    body {
-      margin: 0;
-      background: #ccc;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+<style>
+  body {
+    margin: 0;
+    background: #ccc;
 
-    .logo-wrapper {
-      position: relative;
-      width: 600px;
-      height: 600px;
-    }
+    /* CHANGE THIS so items stack vertically */
+    display: flex;
+    flex-direction: column;   /* <--- NEW */
+    align-items: center;      /* center horizontally */
+    justify-content: flex-start; /* start at top */
+    min-height: 100vh;
+  }
 
-    .logo-frame {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+  .logo-wrapper {
+    position: relative;
+    width: 600px;
+    height: 600px;
 
-    .logo-main {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 85%;
-      height: 85%;
-      transform: translate(-50%, -50%);
-      object-fit: contain;
-      animation: sway 3s ease-in-out infinite;
-      transform-origin: center center;
-    }
+    /* MAKE LOGO TAKE FULL WIDTH so nothing sits beside it */
+    display: flex;
+    justify-content: center;
+  }
 
-    @keyframes sway {
-      0%   { transform: translate(-50%, -50%) rotate(0deg); }
-      25%  { transform: translate(-50%, -50%) rotate(-8deg); }
-      50%  { transform: translate(-50%, -50%) rotate(0deg); }
-      75%  { transform: translate(-50%, -50%) rotate(8deg); }
-      100% { transform: translate(-50%, -50%) rotate(0deg); }
-    }
-  </style>
+  .logo-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .logo-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 85%;
+    height: 85%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    animation: sway 3s ease-in-out infinite;
+    transform-origin: center center;
+  }
+
+  @keyframes sway {
+    0%   { transform: translate(-50%, -50%) rotate(0deg); }
+    25%  { transform: translate(-50%, -50%) rotate(-8deg); }
+    50%  { transform: translate(-50%, -50%) rotate(0deg); }
+    75%  { transform: translate(-50%, -50%) rotate(8deg); }
+    100% { transform: translate(-50%, -50%) rotate(0deg); }
+  }
+
+  /* NEW: This block ensures your text sits UNDER the logo */
+  .text-block {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%; /* forces it to be on its own line */
+  }
+</style>
 </head>
-
-
 
   
 <body>
@@ -60,8 +72,7 @@
     <img src="Bugtoelogo.png" class="logo-main">
   </div>
 
-  <!-- ⭐ TEXT BELOW THE LOGO ⭐ -->
-  <div style="margin-top: 20px; text-align: center;">
+  <div class="text-block">
     <i>Welcome to BugToe,</i><br>
     <i>We have webcomics, About the creator, and MORE!!! :D</i><br>
     <i>-</i><br>
