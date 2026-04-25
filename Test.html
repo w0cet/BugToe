@@ -20,46 +20,57 @@
     justify-content: flex-start;
   }
 
-  /* 🌌 Aurora beams container */
-  .aurora {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1;
-  }
+/* 🌌 Aurora container */
+.aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
 
-  /* 🌈 Individual beams */
-  .beam {
-    position: absolute;
-    top: 0;
-    width: 12vw;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 255, 180, 0.25),
-      rgba(0, 120, 255, 0.25),
-      rgba(180, 0, 255, 0.25)
-    );
-    filter: blur(40px);
-    animation: wiggle 6s ease-in-out infinite alternate;
-    opacity: 0.7;
-  }
+/* 🟢🟡 Green + yellow sideways wiggly beams */
+.beam {
+  position: absolute;
+  left: 0;
+  height: 12vh;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 255, 0, 0.35),
+    rgba(255, 255, 0, 0.35),
+    rgba(0, 255, 0, 0.35)
+  );
+  filter: blur(35px);
+  opacity: 0.7;
 
-  /* 🌊 Wiggly motion */
-  @keyframes wiggle {
-    0%   { transform: translateX(0) skewX(0deg); }
-    25%  { transform: translateX(-20px) skewX(-4deg); }
-    50%  { transform: translateX(10px) skewX(3deg); }
-    75%  { transform: translateX(-15px) skewX(-2deg); }
-    100% { transform: translateX(0) skewX(0deg); }
-  }
+  animation: wiggleSideways 7s ease-in-out infinite alternate;
+}
 
-  /* You can duplicate beams for more density */
-  .beam:nth-child(1) { left: 10%; animation-duration: 7s; }
-  .beam:nth-child(2) { left: 30%; animation-duration: 5.5s; }
-  .beam:nth-child(3) { left: 55%; animation-duration: 6.5s; }
-  .beam:nth-child(4) { left: 75%; animation-duration: 5s; }
+/* 🌊 Sideways wiggly motion */
+@keyframes wiggleSideways {
+  0%   { transform: translateY(0) skewY(0deg); }
+  20%  { transform: translateY(-25px) skewY(4deg); }
+  45%  { transform: translateY(15px) skewY(-3deg); }
+  70%  { transform: translateY(-20px) skewY(2deg); }
+  100% { transform: translateY(0) skewY(0deg); }
+}
+
+/* Position each beam at different heights + speeds */
+.beam:nth-child(1) {
+  top: 20%;
+  animation-duration: 6s;
+}
+
+.beam:nth-child(2) {
+  top: 50%;
+  animation-duration: 8s;
+}
+
+.beam:nth-child(3) {
+  top: 75%;
+  animation-duration: 7s;
+}
 
   /* Your existing logo + text styles stay the same */
   .logo-wrapper {
@@ -110,7 +121,6 @@
 <body>
 
 <div class="aurora">
-  <div class="beam"></div>
   <div class="beam"></div>
   <div class="beam"></div>
   <div class="beam"></div>
