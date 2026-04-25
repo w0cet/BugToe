@@ -5,22 +5,10 @@
   <title>Bugtoe Logo Only</title>
 
 <style>
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: #ccc; /* base gray */
 
-    /* Positioning for aurora overlay */
-    position: relative;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-/* 🌌 Aurora container */
+/* ------------------------------
+   AURORA WIGGLY LINES
+--------------------------------*/
 .aurora {
   position: absolute;
   inset: 0;
@@ -33,110 +21,120 @@
 .worm {
   position: absolute;
   width: 100%;
-  height: 12vh;
+  height: 10vh;
   left: 0;
   fill: none;
 }
 
-/* Green → yellow glowing line, now 20% opacity */
+/* More colourful green/yellow + subtle */
 .worm path {
   stroke: url(#auroraGradient);
   stroke-width: 40;
   stroke-linecap: round;
-  opacity: 0.2; /* more invisible */
-  filter: drop-shadow(0 0 20px rgba(255,255,0,0.3));
-  animation: wiggle 6s ease-in-out infinite;
+  opacity: 0.22; /* ~20% */
+  filter: drop-shadow(0 0 35px rgba(255,255,0,0.6))
+          drop-shadow(0 0 25px rgba(0,255,0,0.6));
+  animation: wiggle 8s ease-in-out infinite;
 }
 
-/* MUCH more wiggly shape */
+/* Smooth, stable wiggle */
 @keyframes wiggle {
-  0%   { d: path("M0 100 Q 200 20 500 100 T 1000 100"); }
-  25%  { d: path("M0 100 Q 200 180 500 40 T 1000 120"); }
-  50%  { d: path("M0 100 Q 200 10 500 160 T 1000 80"); }
-  75%  { d: path("M0 100 Q 200 170 500 30 T 1000 110"); }
-  100% { d: path("M0 100 Q 200 20 500 100 T 1000 100"); }
+  0%   { d: path("M0 100 Q 200 60 500 100 T 1000 100"); }
+  25%  { d: path("M0 100 Q 200 140 500 80 T 1000 120"); }
+  50%  { d: path("M0 100 Q 200 40 500 120 T 1000 90"); }
+  75%  { d: path("M0 100 Q 200 130 500 60 T 1000 110"); }
+  100% { d: path("M0 100 Q 200 60 500 100 T 1000 100"); }
 }
 
-/* Different vertical positions + speeds */
+/* Spread them out so they don’t overlap weirdly */
 .worm:nth-child(1) {
-  top: 25%;
-  animation-duration: 7s;
+  top: 22%;
+  animation-duration: 9s;
 }
 
 .worm:nth-child(2) {
-  top: 55%;
-  animation-duration: 6s;
+  top: 50%;
+  animation-duration: 7s;
 }
 
 .worm:nth-child(3) {
-  top: 80%;
-  animation-duration: 8s;
+  top: 78%;
+  animation-duration: 10s;
 }
 
-  
-}  /* Your existing logo + text styles stay the same */
-  .logo-wrapper {
-    position: relative;
-    width: 600px;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-  }
+/* ------------------------------
+   PAGE LAYOUT
+--------------------------------*/
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ccc;
 
-  .logo-frame {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 
-  .logo-main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 85%;
-    height: 85%;
-    transform: translate(-50%, -50%);
-    object-fit: contain;
-    animation: sway 3s ease-in-out infinite;
-    transform-origin: center center;
-  }
+  position: relative;
+  overflow: hidden;
+}
 
-  @keyframes sway {
-    0%   { transform: translate(-50%, -50%) rotate(0deg); }
-    25%  { transform: translate(-50%, -50%) rotate(-8deg); }
-    50%  { transform: translate(-50%, -50%) rotate(0deg); }
-    75%  { transform: translate(-50%, -50%) rotate(8deg); }
-    100% { transform: translate(-50%, -50%) rotate(0deg); }
-  }
+.logo-wrapper {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+}
 
-  .text-block {
-    margin-top: 20px;
-    text-align: center;
-    width: 100%;
-  }
+.logo-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 85%;
+  height: 85%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes sway {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  25%  { transform: translate(-50%, -50%) rotate(-8deg); }
+  50%  { transform: translate(-50%, -50%) rotate(0deg); }
+  75%  { transform: translate(-50%, -50%) rotate(8deg); }
+  100% { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+.text-block {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
 </style>
 </head>
 
-  
 <body>
 
-  <div class="aurora">
-  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none">
-    <path d="" />
-  </svg>
-
-  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none">
-    <path d="" />
-  </svg>
-
-  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none">
-    <path d="" />
-  </svg>
+<!-- Aurora worms -->
+<div class="aurora">
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
 </div>
 
-  <svg width="0" height="0">
+<!-- Gradient definition -->
+<svg width="0" height="0">
   <defs>
     <linearGradient id="auroraGradient" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="rgba(0,255,0,1)" />
@@ -145,17 +143,20 @@
     </linearGradient>
   </defs>
 </svg>
-  
-  <div class="logo-wrapper">
-    <img src="Bugtoelogoframe.png" class="logo-frame">
-    <img src="Bugtoelogo.png" class="logo-main">
-  </div>
 
+<!-- Logo -->
+<div class="logo-wrapper">
+  <img src="Bugtoelogoframe.png" class="logo-frame">
+  <img src="Bugtoelogo.png" class="logo-main">
+</div>
+
+<!-- Text -->
 <div class="text-block">
   <b style="font-size: 40px;">Welcome to BugToe,</b><br>
   <i style="font-size: 30px;">We have webcomics, About the creator, and MORE!!! :D</i><br>
   <i style="font-size: 20px;">-</i><br>
   <b style="font-size: 40px;">Links!!!</b>
 </div>
+
 </body>
 </html>
