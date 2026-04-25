@@ -25,61 +25,52 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  overflow: hidden;
   z-index: -1;
+  overflow: hidden;
 }
 
-/* 🟢🟡 Solid green/yellow sideways worms */
-.beam {
+/* Each worm is a full-width SVG line */
+.worm {
   position: absolute;
-  height: 10vh;
   width: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(0, 255, 0, 0.7),
-    rgba(255, 255, 0, 0.7),
-    rgba(0, 255, 0, 0.7)
-  );
-
-  /* Less foggy, more solid */
-  filter: blur(10px);
-  opacity: 0.9;
-
-  /* Random-ish starting positions */
-  left: calc(10% + (80% * var(--rand-x)));
-  top: calc(10% + (80% * var(--rand-y)));
-
-  animation: wiggleSideways 5s ease-in-out infinite alternate;
+  height: 12vh;
+  left: 0;
+  fill: none;
 }
 
-/* 🌊 Stronger sideways wiggle */
-@keyframes wiggleSideways {
-  0%   { transform: translateX(0) translateY(0) skewY(0deg); }
-  20%  { transform: translateX(40px) translateY(-20px) skewY(6deg); }
-  45%  { transform: translateX(-30px) translateY(15px) skewY(-5deg); }
-  70%  { transform: translateX(50px) translateY(-10px) skewY(4deg); }
-  100% { transform: translateX(0) translateY(0) skewY(0deg); }
+/* Green → yellow glowing line */
+.worm path {
+  stroke: url(#auroraGradient);
+  stroke-width: 35;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 15px rgba(255,255,0,0.6));
+  animation: wiggle 6s ease-in-out infinite;
 }
 
-/* Each worm gets its own random seed + speed */
-.beam:nth-child(1) {
-  --rand-x: 0.1;
-  --rand-y: 0.2;
+/* Actual wiggly motion */
+@keyframes wiggle {
+  0%   { d: path("M0 100 Q 250 60 500 100 T 1000 100"); }
+  25%  { d: path("M0 100 Q 250 140 500 80 T 1000 120"); }
+  50%  { d: path("M0 100 Q 250 40 500 120 T 1000 90"); }
+  75%  { d: path("M0 100 Q 250 130 500 60 T 1000 110"); }
+  100% { d: path("M0 100 Q 250 60 500 100 T 1000 100"); }
+}
+
+/* Different vertical positions + speeds */
+.worm:nth-child(1) {
+  top: 20%;
+  animation-duration: 7s;
+}
+
+.worm:nth-child(2) {
+  top: 50%;
   animation-duration: 6s;
 }
 
-.beam:nth-child(2) {
-  --rand-x: 0.6;
-  --rand-y: 0.5;
-  animation-duration: 7.5s;
-}
-
-.beam:nth-child(3) {
-  --rand-x: 0.3;
-  --rand-y: 0.8;
-  animation-duration: 5.5s;
-}
-  /* Your existing logo + text styles stay the same */
+.worm:nth-child(3) {
+  top: 75%;
+  animation-duration: 8s;
+}  /* Your existing logo + text styles stay the same */
   .logo-wrapper {
     position: relative;
     width: 600px;
@@ -127,11 +118,29 @@
   
 <body>
 
-<div class="aurora">
-  <div class="beam"></div>
-  <div class="beam"></div>
-  <div class="beam"></div>
+  <div class="aurora">
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none">
+    <path d="" />
+  </svg>
+
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none">
+    <path d="" />
+  </svg>
+
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none">
+    <path d="" />
+  </svg>
 </div>
+
+  <svg width="0" height="0">
+  <defs>
+    <linearGradient id="auroraGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(0,255,0,0.9)" />
+      <stop offset="50%" stop-color="rgba(255,255,0,0.9)" />
+      <stop offset="100%" stop-color="rgba(0,255,0,0.9)" />
+    </linearGradient>
+  </defs>
+</svg>
   
   <div class="logo-wrapper">
     <img src="Bugtoelogoframe.png" class="logo-frame">
