@@ -14,13 +14,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 20px;
     }
 
+    /* MAKE LOGO BIGGER + HIGHER */
     .logo-wrapper {
       position: relative;
-      width: 420px;
-      height: 420px;
+      width: 600px;     /* adjust size here */
+      height: 600px;
+      margin-top: -20px; /* move logo upward */
     }
 
     .logo-frame {
@@ -41,8 +42,11 @@
       object-fit: contain;
     }
 
+    /* DAILY BUG-GLE BOX TO THE LEFT */
     .left-box {
-      margin-top: 40px;
+      margin-top: 20px;
+      align-self: flex-start; /* move left */
+      margin-left: 40px;      /* adjust how far left */
       padding: 20px 30px;
       background: #fff;
       border: 6px solid black;
@@ -64,11 +68,13 @@
 
 <body>
 
+  <!-- LOGO -->
   <div class="logo-wrapper">
     <img src="Bugtoelogoframe.png" class="logo-frame">
     <img src="Bugtoelogo.png" class="logo-main">
   </div>
 
+  <!-- DAILY BUG-GLE BOX -->
   <div class="left-box">
     <div class="title">Daily Bug-gle</div>
     <div class="subtext">Your editable yellow text here</div>
