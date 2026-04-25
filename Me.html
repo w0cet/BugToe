@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>- Bugtoe - about me -</title>
+
+<style>
+
+  .text-block b,
+.text-block i {
+  color: white;
+}
+  
+/* ------------------------------
+   AURORA WIGGLY LINES
+--------------------------------*/
+.aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Full-width SVG worms */
+.worm {
+  position: absolute;
+  width: 100%;
+  height: 10vh;
+  left: 0;
+  fill: none;
+}
+
+/* More colourful green/yellow + subtle */
+.worm path {
+  stroke: url(#auroraGradient);
+  stroke-width: 120;
+  stroke-linecap: round;
+  opacity: 0.35; /* ~30% */
+  filter: drop-shadow(0 0 35px rgba(255,255,0,0.6))
+          drop-shadow(0 0 25px rgba(0,255,0,0.6));
+  animation: wiggle 8s ease-in-out infinite;
+}
+
+/* Smooth, stable wiggle */
+@keyframes wiggle {
+  0%   { d: path("M0 100 Q 200 60 500 100 T 1000 100"); }
+  25%  { d: path("M0 100 Q 200 140 500 80 T 1000 120"); }
+  50%  { d: path("M0 100 Q 200 40 500 120 T 1000 90"); }
+  75%  { d: path("M0 100 Q 200 130 500 60 T 1000 110"); }
+  100% { d: path("M0 100 Q 200 60 500 100 T 1000 100"); }
+}
+
+/* Spread them out so they don’t overlap weirdly */
+.worm:nth-child(1) {
+  top: 22%;
+  animation-duration: 9s;
+}
+
+.worm:nth-child(2) {
+  top: 50%;
+  animation-duration: 7s;
+}
+
+.worm:nth-child(3) {
+  top: 78%;
+  animation-duration: 10s;
+}
+/* ------------------------------
+   CURSORS
+--------------------------------*/
+body {
+ 
+  padding-bottom: 400px;
+  cursor: url('Bugg.png') 0 0, auto;
+}
+
+.interactive:hover {
+  cursor: url('BuggHover.png') 0 0, auto;
+}
+
+/ CLICK CURSOR — works instantly */
+.interactive:active {
+  cursor: url('BuggClick.png') 0 0, auto !important;
+}
+
+
+/* ------------------------------
+   PAGE LAYOUT
+--------------------------------*/
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #045200;
+
+  display: block; /* ← THIS FIXES SCROLLING */
+
+  position: relative;
+  overflow-y: auto; /* ← allows scrolling */
+}
+  
+.logo-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 85%;
+  height: 85%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes sway {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  25%  { transform: translate(-50%, -50%) rotate(-8deg); }
+  50%  { transform: translate(-50%, -50%) rotate(0deg); }
+  75%  { transform: translate(-50%, -50%) rotate(8deg); }
+  100% { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+.text-block {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Aurora worms -->
+<div class="aurora">
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
+</div>
+
+<!-- Gradient definition -->
+<svg width="0" height="0">
+  <defs>
+    <linearGradient id="auroraGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(0,255,0,1)" />
+      <stop offset="50%" stop-color="rgba(255,255,0,1)" />
+      <stop offset="100%" stop-color="rgba(0,255,0,1)" />
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- Logo -->
+<div class="logo-wrapper">
+  <img src="Bugtoelogoframe.png" class="logo-frame">
+  <img src="Bugtoelogo.png" class="logo-main">
+</div>
+
+<!-- Text -->
+<div class="text-block">
+  <b style="font-size: 40px;">Welcome to BugToe,</b><br>
+    <b style="font-size: 40px;"> </b><br>
+<b style="font-size: 40px;">Links/bookmarks!!!</b><br>
+  <b style="font-size: 40px;"></b><br>
+  <b style="font-size: 20px;">Google media type stuff</b><br>
+<a href="https://www.google.com" class="interactive" style="font-size: 30px; color: yellow;">Google.</a>
+    <i style="font-size: 20px;"></i><br>
+  <a href="https://mail.google.com" class="interactive" style="font-size: 30px; color: yellow;">GMail</a>
+    <i style="font-size: 20px;"></i><br>
+  <a href="https://www.Youtube.com" class="interactive" style="font-size: 30px; color: yellow;">Youtube.</a>
+    <i style="font-size: 20px;"></i><br>
+  <b style="font-size: 40px;"> </b><br>
+  <b style="font-size: 20px;">Web games I use</b><br>
+<a href="https://www.Roblox.com" class="interactive" style="font-size: 30px; color: yellow;">Roblox.</a>
+    <i style="font-size: 20px;"></i><br>
+<a href="https://polytoria.com/home" class="interactive" style="font-size: 30px; color: yellow;">Polytoria.</a>
+      <i style="font-size: 20px;"></i><br>
+  <b style="font-size: 40px;"> </b><br>
+  <b style="font-size: 20px;">Extra</b><br>
+<a href="https://Homestuck.com" class="interactive" style="font-size: 30px; color: yellow;">Homestuck.</a>
+      <i style="font-size: 20px;"></i><br>
+<a href="https://www.wco.tv/xavier-renegade-angel-episode-1-what-life-d-d-doth" class="interactive" style="font-size: 30px; color: yellow;">Peak show.</a>
+      <i style="font-size: 20px;"></i><br>
+<a href="https://wheelofnames.com/" class="interactive" style="font-size: 30px; color: yellow;">Wheel of names.</a>
+      <i style="font-size: 20px;"></i><br>
+  <a href="https://github.com" class="interactive" style="font-size: 30px; color: yellow;">Github</a>
+      <i style="font-size: 20px;"></i><br>
+  <a href="https://www.bugtoe.com/Old" class="interactive" style="font-size: 30px; color: yellow;">Older Version.</a>
+      <i style="font-size: 20px;"></i><br>
+  <b style="font-size: 40px;"> </b><br>
+<b style="font-size: 40px;">Random wording</b><br>
+  <i id="randomMessage" style="font-size: 30px;">Loading...</i><br>
+</div>
+
+<script>
+  // Your list of random messages
+  const messages = [
+    "Random message : Bugtoe is pretty cool. -me",
+    "Random message : Bugtoe.com/Error",
+    "Random message : why did ink games die. :C",
+    "Random message : Nerd.",
+    "Random message : oogily boogily.",
+    "Random message : Burp.",
+    "Random message : ND are you reading this?.",
+    "Random message : SrPlasma refrence.",
+    "Random message : Could use a litte coconut.",
+    "Random message : i have a jjs emote addiction.",
+    "Random message : btw i make 3d models.",
+    "Random message : XD",
+    "Random message : DannyAz999.",
+    "Random message : Rest in peace Amazing_andrew111.",
+    "Random message : Tecow is a peak charater I created.",
+    "Random message : Wocet is a peak charater I created.",
+    "Random message : Nerd.",
+    "Random message : What ever major loser.",
+    "Random message : SUPER DUPER NERD.",
+    "Random message : 46",
+    "Random message : W0CET.",
+    "Random message : I tried to make this a game once lmao.",
+    "Random message : TheHappyGuy is a GREAT ROBLOX CODER 100% would ask to help again.",
+    "Random message : Roblox kinda dookie now tho.",
+    "Random message : RIP Rec room lowk.",
+    "Random message : Bugtoe is the awnser to your prayers.",
+    "Random message : me when yea.",
+    "Random message : this website used to be rainbow."
+  ];
+
+  function updateRandomMessage() {
+    const pick = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById("randomMessage").textContent = pick;
+  }
+
+  // Update immediately on load
+  updateRandomMessage();
+
+  // Update every minute
+  setInterval(updateRandomMessage, 6000);
+</script>
+  
+</body>
+</html>
