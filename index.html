@@ -189,5 +189,28 @@ body {
       <i style="font-size: 20px;"></i><br>
 </div>
 
+<script>
+  // Your list of random messages
+  const messages = [
+    "Bug Fact of the Minute: Beetles make up 25% of all animals!",
+    "Toe Tip of the Minute: Wiggle breaks improve focus.",
+    "Random Thought of the Minute: Why do we call them buildings if they're already built?",
+    "BugToe Wisdom of the Minute: Stay goofy.",
+    "Fun Fact of the Minute: Grass is just nature’s carpet.",
+    "Dev Note of the Minute: Drink water, stay hydrated."
+  ];
+
+  function updateRandomMessage() {
+    const pick = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById("randomMessage").textContent = pick;
+  }
+
+  // Update immediately on load
+  updateRandomMessage();
+
+  // Update every minute
+  setInterval(updateRandomMessage, 60000);
+</script>
+  
 </body>
 </html>
