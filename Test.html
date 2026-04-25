@@ -17,17 +17,26 @@
       align-items: flex-start;
       background-color: #ccc;
       font-family: sans-serif;
+      overflow: hidden;
     }
 
-    /* LEFT BOX */
+    /* ALIVE COMIC BOX */
     .left-box {
       position: absolute;
-      top: 40px;
+      top: 120px; /* BELOW the logo now */
       left: 40px;
       padding: 20px 30px;
-      background: rgba(0, 0, 0, 0.15);
-      border-radius: 10px;
-      text-align: center;
+      background: #fff;
+      border: 6px solid black;
+      transform: rotate(-2deg);
+      animation: bounce 2.5s ease-in-out infinite;
+      box-shadow: 6px 6px 0px rgba(0,0,0,0.4);
+    }
+
+    @keyframes bounce {
+      0%   { transform: rotate(-2deg) translateY(0); }
+      50%  { transform: rotate(-2deg) translateY(-8px); }
+      100% { transform: rotate(-2deg) translateY(0); }
     }
 
     .left-box .title {
@@ -41,6 +50,7 @@
       font-family: 'Showcard Gothic', sans-serif;
       font-size: 26px;
       color: yellow;
+      text-shadow: 2px 2px 0 black;
     }
 
     /* LOGO STACK */
@@ -55,86 +65,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 120%;
-      height: 120%;
-      transform: translate(-10%, -10%);
-      object-fit: contain;
-    }
-
-    .logo-main {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 85%;
-      height: 85%;
-      transform: translate(-50%, -50%);
-      object-fit: contain;
-      animation: sway 3s ease-in-out infinite;
-      transform-origin: center center;
-    }
-
-    @keyframes sway {
-      0%   { transform: translate(-50%, -50%) rotate(0deg); }
-      25%  { transform: translate(-50%, -50%) rotate(-8deg); }<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Bugtoe Logo Animation</title>
-  <style>
-    @font-face {
-      font-family: 'Showcard Gothic';
-      src: local('Showcard Gothic'), local('ShowcardGothic');
-    }
-
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background-color: #ccc;
-      font-family: sans-serif;
-      overflow: hidden; /* prevents accidental repeats */
-    }
-
-    /* LEFT BOX */
-    .left-box {
-      position: absolute;
-      top: 40px;
-      left: 40px;
-      padding: 20px 30px;
-      background: rgba(0, 0, 0, 0.15);
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .left-box .title {
-      font-family: 'Showcard Gothic', sans-serif;
-      font-size: 40px;
-      color: green;
-      margin-bottom: 10px;
-    }
-
-    .left-box .subtext {
-      font-family: 'Showcard Gothic', sans-serif;
-      font-size: 26px;
-      color: yellow;
-    }
-
-    /* LOGO STACK */
-    .logo-wrapper {
-      position: relative;
-      margin-top: 10px;
-      width: 420px;
-      height: 420px;
-      overflow: visible; /* ensures only one image shows */
-    }
-
-    .logo-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;   /* keep it clean and contained */
+      width: 100%;
       height: 100%;
       object-fit: contain;
     }
@@ -162,38 +93,16 @@
 </head>
 <body>
 
-  <!-- LEFT BOX -->
-  <div class="left-box">
-    <div class="title">Daily Bug-gle</div>
-    <div class="subtext">Your editable yellow text here</div>
-  </div>
-
   <!-- LOGOS -->
   <div class="logo-wrapper">
     <img src="Bugtoelogoframe.png" alt="Bugtoe Frame" class="logo-frame">
     <img src="Bugtoelogo.png" alt="Bugtoe Logo" class="logo-main">
   </div>
 
-</body>
-</html>
-      50%  { transform: translate(-50%, -50%) rotate(0deg); }
-      75%  { transform: translate(-50%, -50%) rotate(8deg); }
-      100% { transform: translate(-50%, -50%) rotate(0deg); }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- LEFT BOX -->
+  <!-- ALIVE BOX -->
   <div class="left-box">
     <div class="title">Daily Bug-gle</div>
     <div class="subtext">Your editable yellow text here</div>
-  </div>
-
-  <!-- LOGOS -->
-  <div class="logo-wrapper">
-    <img src="Bugtoelogoframe.png" alt="Bugtoe Frame" class="logo-frame">
-    <img src="Bugtoelogo.png" alt="Bugtoe Logo" class="logo-main">
   </div>
 
 </body>
