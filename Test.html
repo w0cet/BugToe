@@ -7,14 +7,30 @@
 <style>
   body {
     margin: 0;
-    background: #ccc;
-
-    /* CHANGE THIS so items stack vertically */
-    display: flex;
-    flex-direction: column;   /* <--- NEW */
-    align-items: center;      /* center horizontally */
-    justify-content: flex-start; /* start at top */
     min-height: 100vh;
+
+    /* 🔥 Animated green + yellow tint over gray */
+    background: linear-gradient(
+      120deg,
+      rgba(0, 255, 0, 0.15),
+      rgba(255, 255, 0, 0.15),
+      #ccc,
+      #ccc
+    );
+    background-size: 300% 300%;
+    animation: bgMove 12s ease-in-out infinite;
+
+    /* layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  @keyframes bgMove {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   .logo-wrapper {
@@ -55,11 +71,10 @@
     100% { transform: translate(-50%, -50%) rotate(0deg); }
   }
 
-  /* NEW: This block ensures your text sits UNDER the logo */
   .text-block {
     margin-top: 20px;
     text-align: center;
-    width: 100%; /* forces it to be on its own line */
+    width: 100%;
   }
 </style>
 </head>
