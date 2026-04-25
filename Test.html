@@ -10,23 +10,24 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      background-color: #ccc; /* gray background */
+      background-color: #ccc;
       font-family: sans-serif;
     }
 
     .logo-wrapper {
       position: relative;
-      margin-top: 40px; /* space from top */
-      width: 260px;     /* adjust size as needed */
-      height: 260px;
+      margin-top: 60px;
+      width: 420px;   /* bigger overall */
+      height: 420px;
     }
 
     .logo-frame {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;   /* bigger one behind */
-      height: 100%;
+      width: 115%;   /* background one slightly bigger */
+      height: 115%;
+      transform: translate(-7.5%, -7.5%); /* centers the oversize frame */
       object-fit: contain;
     }
 
@@ -34,8 +35,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 80%;    /* slightly smaller */
-      height: 80%;
+      width: 85%;    /* slightly smaller than frame */
+      height: 85%;
       transform: translate(-50%, -50%);
       object-fit: contain;
       animation: sway 3s ease-in-out infinite;
