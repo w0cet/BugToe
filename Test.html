@@ -5,26 +5,18 @@
   <title>Bugtoe Logo Animation</title>
 
   <style>
-    @font-face {
-      font-family: 'Showcard Gothic';
-      src: local('Showcard Gothic'), local('ShowcardGothic');
-    }
-
-    /* Whole page layout: vertical stack, centered */
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;   /* <--- IMPORTANT */
-      justify-content: flex-start;
-      align-items: center;
-      background-color: #ccc;
+      background: #ccc;
       font-family: sans-serif;
-      overflow: hidden;
+
+      /* STACK EVERYTHING VERTICALLY */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding-top: 20px;
     }
 
-    /* LOGO STACK */
     .logo-wrapper {
       position: relative;
       width: 420px;
@@ -47,510 +39,36 @@
       height: 85%;
       transform: translate(-50%, -50%);
       object-fit: contain;
-      animation: sway 3s ease-in-out infinite;
-      transform-origin: center center;
     }
 
-    @keyframes sway {
-      0%   { transform: translate(-50%, -50%) rotate(0deg); }
-      25%  { transform: translate(-50%, -50%) rotate(-8deg); }
-      50%  { transform: translate(-50%, -50%) rotate(0deg); }
-      75%  { transform: translate(-50%, -50%) rotate(8deg); }
-      100% { transform: translate(-50%, -50%) rotate(0deg); }
-    }
-
-    /* DAILY BUG-GLE BOX – BELOW LOGO */
-    .left-box {
-      margin-top: 40px;          /* space under logo */
-      padding: 20px 30px;
-      background: #fff;
-      border: 6px solid black;
-      transform: rotate(-2deg);
-      animation: bounce 2.5s ease-in-out infinite;
-      box-shadow: 6px 6px 0px rgba(0,0,0,0.4);
-    }
-
-    @keyframes bounce {
-      0%   { transform: rotate(-2deg) translateY(0); }
-      50%  { transform: rotate(-2deg) translateY(-8px); }
-      100% { transform: rotate(-2deg) translateY(0); }
-    }
-
-    .left-box .title {
-      font-family: 'Showcard Gothic', sans-serif;
-      font-size: 40px;
-      color: green;
-      margin-bottom: 10px;
-    }
-
-    .left-box .subtext {
-      font-family: 'Showcard Gothic', sans-serif;
-      font-size: 26px;
-      color: yellow;
-      text-shadow: 2px 2px 0 black;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- LOGO (only once) -->
-  <div class="logo-wrapper">
-    <img src="Bugtoelogoframe.png" alt="Bugtoe Frame" class="logo-frame">
-    <img src="Bugtoelogo.png" alt="Bugtoe Logo" class="logo-main">
-  </div>
-
-  <!-- DAILY BUG-GLE BOX (below logo) -->
-  <div class="left-box">
-    <div class="title">Daily Bug-gle</div>
-    <div class="subtext">Your editable yellow text here</div>
-  </div>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Bugtoe Logo Animation</title>
-
-  <style>
-    @font-face {
-      font-family: 'Showcard Gothic';
-      src: local('Showcard Gothic'), local('ShowcardGothic');
-    }
-
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background-color: #ccc;
-      font-family: sans-serif;
-      overflow: hidden;
-    }
-
-    /* PAGE LAYOUT */
-    .page {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
-    }
-
-    /* LOGO STACK */
-    .logo-wrapper {
-      position: relative;
-      width: 420px;
-      height: 420px;
-    }
-
-    .logo-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .logo-main {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 85%;
-      height: 85%;
-      transform: translate(-50%, -50%);
-      object-fit: contain;
-      animation: sway 3s ease-in-out infinite;
-      transform-origin: center center;
-    }
-
-    @keyframes sway {
-      0%   { transform: translate(-50%, -50%) rotate(0deg); }
-      25%  { transform: translate(-50%, -50%) rotate(-8deg); }
-      50%  { transform: translate(-50%, -50%) rotate(0deg); }
-      75%  { transform: translate(-50%, -50%) rotate(8deg); }
-      100% { transform: translate(-50%, -50%) rotate(0deg); }
-    }
-
-    /* DAILY BUG-GLE BOX */
     .left-box {
       margin-top: 40px;
       padding: 20px 30px;
       background: #fff;
       border: 6px solid black;
       transform: rotate(-2deg);
-      animation: bounce 2.5s ease-in-out infinite;
-      box-shadow: 6px 6px 0px rgba(0,0,0,0.4);
     }
 
-    @keyframes bounce {
-      0%   { transform: rotate(-2deg) translateY(0); }
-      50%  { transform: rotate(-2deg) translateY(-8px); }
-      100% { transform: rotate(-2deg) translateY(0); }
-    }
-
-    .left-box .title {
-      font-family: 'Showcard Gothic', sans-serif;
+    .title {
       font-size: 40px;
       color: green;
-      margin-bottom: 10px;
     }
 
-    .left-box .subtext {
-      font-family: 'Showcard Gothic', sans-serif;
+    .subtext {
       font-size: 26px;
       color: yellow;
       text-shadow: 2px 2px 0 black;
-    }
-
-  </style>
-</head>
-
-<body>
-
-  <div class="page">
-
-    <!-- LOGO -->
-    <div class="logo-wrapper">
-      <img src="Bugtoelogoframe.png" alt="Bugtoe Frame" class="logo-frame">
-      <img src="Bugtoelogo.png" alt="Bugtoe Logo" class="logo-main">
-    </div>
-
-    <!-- DAILY BUG-GLE BOX -->
-    <div class="left-box">
-      <div class="title">Daily Bug-gle</div>
-      <div class="subtext">Your editable yellow text here</div>
-    </div>
-
-  </div>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Bugtoe Logo Animation</title>
-
-  <style>
-    @font-face {
-      font-family: 'Showcard Gothic';
-      src: local('Showcard Gothic'), local('ShowcardGothic');
-    }
-
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background-color: #ccc;
-      font-family: sans-serif;
-      overflow: hidden;
-    }
-
-    /* ALIVE COMIC BOX */
-    .left-box {
-      position: absolute;
-      top: 120px;
-      left: 40px;
-      padding: 20px 30px;
-      background: #fff;
-      border: 6px solid black;
-      box-shadow: 6px 6px 0px rgba(0,0,0,0.4);
-
-      /* FIX: Only rotate here */
-      transform: rotate(-2deg);
-
-      /* FIX: Animation now ONLY moves vertically */
-      animation: bounce 2.5s ease-in-out infinite;
-    }
-
-    @keyframes bounce {
-      0%   { transform: rotate(-2deg) translateY(0); }
-      50%  { transform: rotate(-2deg) translateY(-8px); }
-      100% { transform: rotate(-2deg) translateY(0); }
-    }
-
-    .left-box .title {
-      font-family: 'Showcard Gothic', sans-serif;
-      font-size: 40px;
-      color: green;
-      margin-bottom: 10px;
-    }
-
-    .left-box .subtext {
-      font-family: 'Showcard Gothic', sans-serif;
-      font-size: 26px;
-      color: yellow;
-      text-shadow: 2px 2px 0 black;
-    }
-
-    /* LOGO STACK */
-    .logo-wrapper {
-      position: relative;
-      margin-top: 10px;
-      width: 420px;
-      height: 420px;
-    }
-
-    .logo-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .logo-main {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 85%;
-      height: 85%;
-      transform: translate(-50%, -50%);
-      object-fit: contain;
-      animation: sway 3s ease-in-out infinite;
-      transform-origin: center center;
-    }
-
-    @keyframes sway {
-      0%   { transform: translate(-50%, -50%) rotate(0deg); }
-      25%  { transform: translate(-50%, -50%) rotate(-8deg); }
-      50%  { transform: translate(-50%, -50%) rotate(0deg); }
-      75%  { transform: translate(-50%, -50%) rotate(8deg); }
-      100% { transform: translate(-50%, -50%) rotate(0deg); }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- LOGOS -->
   <div class="logo-wrapper">
-    <img src="Bugtoelogoframe.png" alt="Bugtoe Frame" class="logo-frame">
-    <img src="Bugtoelogo.png" alt="Bugtoe Logo" class="logo-main">
+    <img src="Bugtoelogoframe.png" class="logo-frame">
+    <img src="Bugtoelogo.png" class="logo-main">
   </div>
 
-  <!-- ALIVE BOX -->
-  <div class="left-box">
-    <div class="title">Daily Bug-gle</div>
-    <div class="subtext">Your editable yellow text here</div>
-  </div>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Bugtoe Logo Animation</title>
-  <style>
-    @font-face {
-      font-family: 'Showcard Gothic';
-      src: local('Showcard Gothic'), local('ShowcardGothic');
-    }
-
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background-color: #ccc;
-      font-family: sans-serif;
-      overflow: hidden;
-    }
-
-    /* ALIVE COMIC BOX */
-    .left-box {
-      position: absolute;
-      top: 120px; /* BELOW the logo now */
-      left: 40px;
-      padding: 20px 30px;
-      background: #fff;
-      border: 6px solid black;
-      transform: rotate(-2deg);
-      animation: bounce 2.5s ease-in-out infinite;
-      box-shadow: 6px 6px 0px rgba(0,0,0,0.4);
-    }
-
-    @keyframes bounce {
-      0%   { transform: rotate(-2deg) translateY(0); }
-      50%  { transform: rotate(-2deg) translateY(-8px); }
-      100% { transform: rotate(-2deg) translateY(0); }
-    }
-
-    .left-box .title {
-      font-family: 'Showcard Gothic', sans-serif;
-      font-size: 40px;
-      color: green;
-      margin-bottom: 10px;
-    }
-
-    .left-box .subtext {
-      font-family: 'Showcard Gothic', sans-serif;
-      font-size: 26px;
-      color: yellow;
-      text-shadow: 2px 2px 0 black;
-    }
-
-    /* LOGO STACK */
-    .logo-wrapper {
-      position: relative;
-      margin-top: 10px;
-      width: 420px;
-      height: 420px;
-    }
-
-    .logo-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .logo-main {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 85%;
-      height: 85%;
-      transform: translate(-50%, -50%);
-      object-fit: contain;
-      animation: sway 3s ease-in-out infinite;
-      transform-origin: center center;
-    }
-
-    @keyframes sway {
-      0%   { transform: translate(-50%, -50%) rotate(0deg); }
-      25%  { transform: translate(-50%, -50%) rotate(-8deg); }
-      50%  { transform: translate(-50%, -50%) rotate(0deg); }
-      75%  { transform: translate(-50%, -50%) rotate(8deg); }
-      100% { transform: translate(-50%, -50%) rotate(0deg); }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- LOGOS -->
-  <div class="logo-wrapper">
-    <img src="Bugtoelogoframe.png" alt="Bugtoe Frame" class="logo-frame">
-    <img src="Bugtoelogo.png" alt="Bugtoe Logo" class="logo-main">
-  </div>
-
-  <!-- ALIVE BOX -->
-  <div class="left-box">
-    <div class="title">Daily Bug-gle</div>
-    <div class="subtext">Your editable yellow text here</div>
-  </div>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Bugtoe Logo Animation</title>
-  <style>
-    @font-face {
-      font-family: 'Showcard Gothic';
-      src: local('Showcard Gothic'), local('ShowcardGothic');
-    }
-
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      background-color: #ccc;
-      font-family: sans-serif;
-      overflow: hidden;
-    }
-
-    /* ALIVE COMIC BOX */
-    .left-box {
-      position: absolute;
-      top: 120px; /* BELOW the logo now */
-      left: 40px;
-      padding: 20px 30px;
-      background: #fff;
-      border: 6px solid black;
-      transform: rotate(-2deg);
-      animation: bounce 2.5s ease-in-out infinite;
-      box-shadow: 6px 6px 0px rgba(0,0,0,0.4);
-    }
-
-    @keyframes bounce {
-      0%   { transform: rotate(-2deg) translateY(0); }
-      50%  { transform: rotate(-2deg) translateY(-8px); }
-      100% { transform: rotate(-2deg) translateY(0); }
-    }
-
-    .left-box .title {
-      font-family: 'Showcard Gothic', sans-serif;
-      font-size: 40px;
-      color: green;
-      margin-bottom: 10px;
-    }
-
-    .left-box .subtext {
-      font-family: 'Showcard Gothic', sans-serif;
-      font-size: 26px;
-      color: yellow;
-      text-shadow: 2px 2px 0 black;
-    }
-
-    /* LOGO STACK */
-    .logo-wrapper {
-      position: relative;
-      margin-top: 10px;
-      width: 420px;
-      height: 420px;
-    }
-
-    .logo-frame {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .logo-main {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 85%;
-      height: 85%;
-      transform: translate(-50%, -50%);
-      object-fit: contain;
-      animation: sway 3s ease-in-out infinite;
-      transform-origin: center center;
-    }
-
-    @keyframes sway {
-      0%   { transform: translate(-50%, -50%) rotate(0deg); }
-      25%  { transform: translate(-50%, -50%) rotate(-8deg); }
-      50%  { transform: translate(-50%, -50%) rotate(0deg); }
-      75%  { transform: translate(-50%, -50%) rotate(8deg); }
-      100% { transform: translate(-50%, -50%) rotate(0deg); }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- LOGOS -->
-  <div class="logo-wrapper">
-    <img src="Bugtoelogoframe.png" alt="Bugtoe Frame" class="logo-frame">
-    <img src="Bugtoelogo.png" alt="Bugtoe Logo" class="logo-main">
-  </div>
-
-  <!-- ALIVE BOX -->
   <div class="left-box">
     <div class="title">Daily Bug-gle</div>
     <div class="subtext">Your editable yellow text here</div>
