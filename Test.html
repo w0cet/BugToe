@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bugtoe Logo Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background-color: #ccc; /* gray background */
+      font-family: sans-serif;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      margin-top: 40px; /* space from top */
+      width: 260px;     /* adjust size as needed */
+      height: 260px;
+    }
+
+    .logo-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;   /* bigger one behind */
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-main {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 80%;    /* slightly smaller */
+      height: 80%;
+      transform: translate(-50%, -50%);
+      object-fit: contain;
+      animation: sway 3s ease-in-out infinite;
+      transform-origin: center center;
+    }
+
+    @keyframes sway {
+      0%   { transform: translate(-50%, -50%) rotate(0deg); }
+      25%  { transform: translate(-50%, -50%) rotate(-8deg); }
+      50%  { transform: translate(-50%, -50%) rotate(0deg); }
+      75%  { transform: translate(-50%, -50%) rotate(8deg); }
+      100% { transform: translate(-50%, -50%) rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-wrapper">
+    <img src="Bugtoelogoframe.png" alt="Bugtoe Frame" class="logo-frame">
+    <img src="Bugtoelogo.png" alt="Bugtoe Logo" class="logo-main">
+  </div>
+</body>
+</html>
