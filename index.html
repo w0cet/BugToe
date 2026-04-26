@@ -66,37 +66,21 @@
   animation-duration: 10s;
 }
 /* ------------------------------
-   CURSORS
+   CURSORS + PAGE LAYOUT
 --------------------------------*/
 body {
-  
-  padding-bottom: 400px;
-  cursor: url('Bugg.png') 0 0, auto;
-}
-
-.interactive:hover {
-  cursor: url('BuggHover.png') 0 0, auto;
-}
-
-/ CLICK CURSOR — works instantly */
-.interactive:active {
-  cursor: url('BuggClick.png') 0 0, auto !important;
-}
-
-
-/* ------------------------------
-   PAGE LAYOUT
---------------------------------*/
-body {
-  margin-top: -100px;
   margin: 0;
   min-height: 100vh;
   background: #045200;
 
-  display: block; /* ← THIS FIXES SCROLLING */
-
+  display: block;
   position: relative;
-  overflow-y: auto; /* ← allows scrolling */
+  overflow-y: auto;
+
+  padding-bottom: 400px;
+  cursor: url('Bugg.png') 0 0, auto;
+
+  margin-top: -80px; /* ← move page upward */
 }
   
 .logo-wrapper {
