@@ -14,7 +14,7 @@ app.post('/check', (req, res) => {
   const destination = codes[code];
 
   if (!destination) {
-    return res.redirect('https://www.bugtoe.com/Code'); // wrong code → send back to main page
+    return res.redirect('/Code'); // wrong code → send back to main page
   }
 
   return res.redirect(destination); // correct code → go to mapped page
