@@ -10,6 +10,486 @@
     color: white;
   }
 
+  .aurora {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .worm {
+    position: absolute;
+    width: 100%;
+    height: 10vh;
+    left: 0;
+    fill: none;
+  }
+
+  .worm path {
+    stroke: url(#auroraGradient);
+    stroke-width: 120;
+    stroke-linecap: round;
+    opacity: 0.35;
+    filter: drop-shadow(0 0 35px rgba(255,255,0,0.6))
+            drop-shadow(0 0 25px rgba(0,255,0,0.6));
+    animation: wiggle 8s ease-in-out infinite;
+  }
+
+  @keyframes wiggle {
+    0%   { d: path("M0 100 Q 200 60 500 100 T 1000 100"); }
+    25%  { d: path("M0 100 Q 200 140 500 80 T 1000 120"); }
+    50%  { d: path("M0 100 Q 200 40 500 120 T 1000 90"); }
+    75%  { d: path("M0 100 Q 200 130 500 60 T 1000 110"); }
+    100% { d: path("M0 100 Q 200 60 500 100 T 1000 100"); }
+  }
+
+  .worm:nth-child(1) { top: 22%; animation-duration: 9s; }
+  .worm:nth-child(2) { top: 50%; animation-duration: 7s; }
+  .worm:nth-child(3) { top: 78%; animation-duration: 10s; }
+
+  body {
+    padding-bottom: 400px;
+    cursor: url('Bugg.png') 0 0, auto;
+    margin: 0;
+    min-height: 100vh;
+    background: #045200;
+    display: block;
+    position: relative;
+    overflow-y: auto;
+  }
+
+  .interactive:hover {
+    cursor: url('BuggHover.png') 0 0, auto;
+  }
+
+  .interactive:active {
+    cursor: url('BuggClick.png') 0 0, auto !important;
+  }
+
+  .text-block {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="aurora">
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
+  <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
+</div>
+
+<svg width="0" height="0">
+  <defs>
+    <linearGradient id="auroraGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(0,255,0,1)" />
+      <stop offset="50%" stop-color="rgba(255,255,0,1)" />
+      <stop offset="100%" stop-color="rgba(0,255,0,1)" />
+    </linearGradient>
+  </defs>
+</svg>
+
+<div class="text-block" id="comic-container"></div>
+
+<script>
+const comicPages = [
+  {
+    img: "S1.png",
+    text: [
+      "A human male appeared.",
+      "",
+      "He holds a crown, cape and some sticks that ravel his crown... He MUST be important"
+    ]
+  },
+  {
+    img: "S2.png",
+    text: [
+      "T: Welp its time to go, Im a busy man after all..."
+    ]
+  },
+  {
+    img: "S3.png",
+    text: [
+      "T: But first...",
+      "",
+      "T: yoink!"
+    ]
+  },
+  {
+    img: "S4.png",
+    text: [
+      "T: Ive been needing a new weapon"
+    ]
+  },
+  {
+    img: "S5.png",
+    text: [
+      "T: There..."
+    ]
+  },
+  {
+    img: "S6.png",
+    text: [
+      "T: Its heavy... PERFECT!!!!"
+    ]
+  },
+  {
+    img: "S7.png",
+    text: [
+      "T: Im going to miss this place."
+    ]
+  },
+  {
+    img: "S8.png",
+    text: [
+      "S w i n g"
+    ]
+  },
+  {
+    img: "S9.png",
+    text: [
+      "T: Climbing is so hard for me nowdays, not only is the sun buring hot"
+    ]
+  },
+  {
+    img: "S10.png",
+    text: [
+      "T: And with my age... man my back allready hurts, funny how i ask for a big ol' hammer."
+    ]
+  },
+  {
+    img: "S11.png",
+    text: [
+      "T: But thats beside the point."
+    ]
+  },
+  {
+    img: "S12.png",
+    text: [
+      "T: This word is still beautiful..."
+    ]
+  },
+  {
+    img: "S13.png",
+    text: [
+      "T: And yet..."
+    ]
+  },
+  {
+    img: "S14.png",
+    text: [
+      "T: Beautiful or not, some people are not, and im not talking about looks"
+    ]
+  },
+  {
+    img: "S15.png",
+    text: [
+      "T: But hey, thats why the atmosphere broke"
+    ]
+  },
+  {
+    img: "S16.png",
+    text: [
+      "T: But another thing that grinds my gears, Yellow, yellow, YELLOW! I dont just mean the color, I mean the person, the company they own, and.. yes the color"
+    ]
+  },
+  {
+    img: "S17.png",
+    text: [
+      "T: And I think you get the point..."
+    ]
+  },
+  {
+    img: "S18.png",
+    text: [
+      "T: I mean its right infront of you."
+    ]
+  },
+  {
+    img: "S19.png",
+    text: [
+      "[NEW CHARACTER]",
+      "Y: Now an idiots in front of you."
+    ]
+  },
+  {
+    img: "S20.png",
+    text: [
+      "Y: Being the silly idiot, this is your trusty gun, steampunk gun... somehow",
+      "Y: You really hate the enviorment"
+    ]
+  },
+  {
+    img: "S21.png",
+    text: [
+      "Y: Hating the enviorment wont stop you from looking cool. (you dont look cool)"
+    ]
+  },
+  {
+    img: "S22.png",
+    text: [
+      "Y: Kachow"
+    ]
+  },
+  {
+    img: "S23.png",
+    text: [
+      "Y: to be fair you are not cool in the first place"
+    ]
+  },
+  {
+    img: "S24.png",
+    text: [
+      "Y: Hey atleast you have a photo of your hero"
+    ]
+  },
+  {
+    img: "S25.png",
+    text: [
+      "Y: But over here you have your safe",
+      "Y: ...",
+      "Y: Why am i touring my room to nobody?"
+    ]
+  },
+  {
+    img: "S26.png",
+    text: [
+      "Y: Oh well",
+      "Y: Anyway when i pull this"
+    ]
+  },
+  {
+    img: "S27.png",
+    text: [
+      "Y: OOF"
+    ]
+  },
+  {
+    img: "S28.png",
+    text: [
+      ""
+    ]
+  },
+  {
+    img: "S29.png",
+    text: [
+      "Y: Isnt my room so cool."
+    ]
+  },
+  {
+    img: "S30.png",
+    text: [
+      "Y: Anyway I have something to do"
+    ]
+  },
+  {
+    img: "S31.png",
+    text: [
+      ""
+    ]
+  },
+  {
+    img: "S32.png",
+    text: [
+      ""
+    ]
+  },
+  {
+    img: "S33.png",
+    text: [
+      ""
+    ]
+  },
+  {
+    img: "S34.png",
+    text: [
+      "Y: Man, I really need a cleaner"
+    ]
+  },
+  {
+    img: "S35.png",
+    text: [
+      "Y: Oh well"
+    ]
+  },
+  {
+    img: "S36.png",
+    text: [
+      "Y: Atleast the world ended",
+      "Y: not alot of people will see it"
+    ]
+  },
+  {
+    img: "S37.png",
+    text: [
+      ""
+    ]
+  },
+  {
+    img: "S38.png",
+    text: [
+      "Y: ow"
+    ]
+  },
+  {
+    img: "S39.png",
+    text: [
+      "Y: lalalalala :P"
+    ]
+  },
+  {
+    img: "S40.png",
+    text: [
+      "Y: Yoink"
+    ]
+  },
+  {
+    img: "S41.png",
+    text: [
+      ""
+    ]
+  },
+  {
+    img: "S42.png",
+    text: [
+      ""
+    ]
+  },
+  {
+    img: "S43.png",
+    text: [
+      ""
+    ]
+  },
+  {
+    img: "S44.png",
+    text: [
+      "Y: Quite a long way"
+    ]
+  },
+  {
+    img: "S45.png",
+    text: [
+      ""
+    ]
+  },
+  {
+    img: "S46.png",
+    text: [
+      "Y: There we go :D"
+    ]
+  },
+  {
+    img: "S47.png",
+    text: [
+      "Y: Uh.."
+    ]
+  },
+  {
+    img: "S48.png",
+    text: [
+      "Y: Hello???"
+    ]
+  },
+  {
+    img: "S49.png",
+    text: [
+      "Y: Well??????"
+    ]
+  },
+  {
+    img: "S50.png",
+    text: [
+      "T: You, Me, fight",
+      "T: Now."
+    ]
+  },
+  {
+    img: "S51.png",
+    text: [
+      "Y: Uhm, me? Why?"
+    ]
+  },
+  {
+    img: "S52.png",
+    text: [
+      "T: Your, YELLOW's CEO, And look around",
+      "T: Everything is in ruin becuse of companys like you.",
+      "T: You must die"
+    ]
+  },
+  {
+    img: "S53.png",
+    text: [
+      "T: Understand?"
+    ]
+  },
+  {
+    img: "S54.png",
+    text: [
+      "T: Dosnt matter, Your going to lose anyway"
+    ]
+  },
+  {
+    img: "S55.png",
+    text: [
+      "Y: Your funeral"
+    ]
+  }
+];
+
+const urlParams = new URLSearchParams(window.location.search);
+let page = parseInt(urlParams.get("page")) || 1;
+
+function renderPage() {
+  const data = comicPages[page - 1];
+  const container = document.getElementById("comic-container");
+
+  if (!data) {
+    container.innerHTML = "<b style='font-size:40px;color:white;'>Page not found.</b>";
+    return;
+  }
+
+  let html = `
+    <b style="font-size: 40px;">Webcomics!</b><br><br>
+    <b style="font-size: 40px;">PathFight</b><br><br>
+    <img src="${data.img}" style="display:block;margin:0 auto;"><br>
+  `;
+
+  data.text.forEach(line => {
+    html += `<b style="font-size:20px;">${line}</b><br><br>`;
+  });
+
+  html += `
+    <div style="margin-top:20px;">
+      ${page > 1 ? `<a href="?page=${page - 1}" class="interactive" style="font-size:30px;color:yellow;">&lt;==</a>` : ""}
+      ${page < comicPages.length ? `<a href="?page=${page + 1}" class="interactive" style="font-size:30px;color:yellow;">==&gt;</a>` : ""}
+    </div>
+  `;
+
+  container.innerHTML = html;
+}
+
+renderPage();
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>- Bugtoe - Webcomics -</title>
+
+<style>
+  .text-block b,
+  .text-block i {
+    color: white;
+  }
+
   /* Aurora background */
   .aurora {
     position: absolute;
