@@ -10,7 +10,6 @@
     color: white;
   }
 
-  /* Aurora background */
   .aurora {
     position: absolute;
     inset: 0;
@@ -48,7 +47,6 @@
   .worm:nth-child(2) { top: 50%; animation-duration: 7s; }
   .worm:nth-child(3) { top: 78%; animation-duration: 10s; }
 
-  /* Cursors */
   body {
     padding-bottom: 400px;
     cursor: url('Bugg.png') 0 0, auto;
@@ -78,14 +76,12 @@
 
 <body>
 
-<!-- Aurora worms -->
 <div class="aurora">
   <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
   <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
   <svg class="worm" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="" /></svg>
 </div>
 
-<!-- Gradient definition -->
 <svg width="0" height="0">
   <defs>
     <linearGradient id="auroraGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -96,15 +92,9 @@
   </defs>
 </svg>
 
-<!-- Comic container -->
 <div class="text-block" id="comic-container"></div>
 
 <script>
-/* ============================
-   COMIC PAGE DATA
-   Add new pages here!
-============================ */
-
 const comicPages = [
   { img: "S1.png", text: ["A human male appeared.", "", "He holds a crown, cape and some sticks that ravel his crown... He MUST be important"] },
   { img: "S2.png", text: ["T: Welp its time to go, Im a busy man after all..."] },
@@ -182,10 +172,6 @@ const comicPages = [
   { img: "S74.png", text: [""] }
 ];
 
-/* ============================
-   PAGE LOADER
-============================ */
-
 const urlParams = new URLSearchParams(window.location.search);
 let page = parseInt(urlParams.get("page")) || 1;
 
@@ -213,9 +199,39 @@ function renderPage() {
       ${page > 1 ? `<a href="?page=${page - 1}" class="interactive" style="font-size:30px;color:yellow;">&lt;==</a>` : ""}
       ${page < comicPages.length ? `<a href="?page=${page + 1}" class="interactive" style="font-size:30px;color:yellow;">==&gt;</a>` : ""}
     </div>
+
+    <div style="margin-top:10px;">
+      <b style="font-size:20px;color:white;">Page ${page} / ${comicPages.length}</b>
+    </div>
+
+    <div style="margin-top:20px;">
+      <input id="pageInput" type="number" min="1" max="${comicPages.length}"
+             placeholder="Go to page..."
+             style="font-size:20px; width:120px; text-align:center;">
+      <button onclick="goToPage()" class="interactive"
+              style="font-size:20px; margin-left:10px; color:yellow;">
+        Go
+      </button>
+    </div>
   `;
 
   container.innerHTML = html;
+
+  document.getElementById("pageInput").addEventListener("keydown", e => {
+    if (e.key === "Enter") goToPage();
+  });
+}
+
+function goToPage() {
+  const input = document.getElementById("pageInput");
+  let target = parseInt(input.value);
+
+  if (!target || target < 1 || target > comicPages.length) {
+    alert("Invalid page number!");
+    return;
+  }
+
+  window.location.search = "?page=" + target;
 }
 
 renderPage();
