@@ -6,16 +6,23 @@
   <title>- Bugtoe - Webcomics -</title>
 
   <style>
+    /* EASY SETTINGS */
+    :root {
+      --text-size: 32px;
+      --text-spacing: 10px;
+      --logo-size: 600px;
+    }
+
     /* CURSORS */
     body {
       cursor: url('Bugg.png') 0 0, auto;
     }
 
-    .interactive:hover {
+    a:hover {
       cursor: url('BuggHover.png') 0 0, auto;
     }
 
-    .interactive:active {
+    a:active {
       cursor: url('BuggClick.png') 0 0, auto !important;
     }
 
@@ -30,10 +37,10 @@
       text-align: center;
     }
 
-    /* LOGO - NO ANIMATION */
+    /* LOGO */
     .logo-wrapper {
-      width: 600px;
-      height: 480px;
+      width: var(--logo-size);
+      height: var(--logo-size);
       max-width: 100%;
       margin: 0 auto;
       display: flex;
@@ -43,24 +50,21 @@
 
     .logo-main {
       width: 85%;
-      height: 100%;
+      height: 85%;
       object-fit: contain;
     }
 
-    /* TEXT */
+    /* TEXT AND LINKS */
     .text-block {
       margin-top: -35px;
-      text-align: center;
-      font-size: 32px;
+      font-size: var(--text-size);
     }
 
-    .text-block p {
-      margin: 0 0 10px;
-    }
-
-    .interactive {
-      font-size: 32px;
+    .text-link {
+      font-size: var(--text-size);
       color: blue;
+      display: block;
+      margin-bottom: var(--text-spacing);
     }
   </style>
 </head>
@@ -72,14 +76,10 @@
     <img src="Bugtoelogo.png" class="logo-main" alt="Bugtoe Logo">
   </div>
 
-  <!-- TEXT -->
+  <!-- LINKS: COPY A LINE TO ADD ANOTHER -->
   <div class="text-block">
-    <p>text</p>
-
-    <a
-      href="https://www.bugtoe.com/Webhome/pathfight/read"
-      class="interactive"
-    >text</a>
+    <a class="text-link" href="https://www.bugtoe.com/Webhome/pathfight/read">text</a>
+    <a class="text-link" href="https://www.bugtoe.com/Webhome/pathfight/read">another text</a>
   </div>
 
 </body>
