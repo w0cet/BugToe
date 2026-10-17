@@ -3,16 +3,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Bugtoe</title>
+  <title>- Bugtoe - Webcomics -</title>
 
   <style>
-    /* EASY SETTINGS */
-    :root {
-      --text-size: 32px;
-      --text-spacing: 10px;
-      --logo-size: 600px;
-    }
-
     /* CURSORS */
     body {
       cursor: url('Bugg.png') 0 0, auto;
@@ -39,8 +32,8 @@
 
     /* LOGO */
     .logo-wrapper {
-      width: var(--logo-size);
-      height: var(--logo-size);
+      width: 600px;
+      height: 600px;
       max-width: 100%;
       margin: 0 auto;
       display: flex;
@@ -54,17 +47,24 @@
       object-fit: contain;
     }
 
-    /* TEXT AND LINKS */
+    /* TEXT AREA */
     .text-block {
       margin-top: -35px;
-      font-size: var(--text-size);
     }
 
+    /* NORMAL TEXT */
+    .normal-text {
+      font-size: 32px;
+      color: black;
+      margin: 10px 0;
+    }
+
+    /* LINKS */
     .text-link {
-      font-size: var(--text-size);
-      color: blue;
       display: block;
-      margin-bottom: var(--text-spacing);
+      font-size: 24px;
+      color: blue;
+      margin: 10px 0;
     }
   </style>
 </head>
@@ -76,10 +76,15 @@
     <img src="Bugtoelogo.png" class="logo-main" alt="Bugtoe Logo">
   </div>
 
-  <!-- LINKS: COPY A LINE TO ADD ANOTHER -->
+  <!-- TEXT AND LINKS -->
   <div class="text-block">
-    <a class="text-link" href="https://www.bugtoe.com/Webhome/pathfight/read">text</a>
-    <a class="text-link" href="https://www.bugtoe.com/Webhome/pathfight/read">another text</a>
+
+    <p class="normal-text">This is normal text</p>
+    <a class="text-link" href="https://www.bugtoe.com/Webhome/pathfight/read">This is a link</a>
+
+    <p class="normal-text">Another piece of normal text</p>
+    <a class="text-link" href="https://www.bugtoe.com/Webhome/pathfight/read">Another link</a>
+
   </div>
 
 </body>
